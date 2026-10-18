@@ -1,0 +1,2602 @@
+TAP version 13
+# Subtest: global arrays share edits while local structures reset at each function invocation
+ok 1 - global arrays share edits while local structures reset at each function invocation
+  ---
+  duration_ms: 30.0018
+  type: 'test'
+  ...
+# Subtest: loop Index drives local array cells and global structure Count accumulates values
+ok 2 - loop Index drives local array cells and global structure Count accumulates values
+  ---
+  duration_ms: 7.2788
+  type: 'test'
+  ...
+# Subtest: arrays are contiguous and structures apply natural field and tail alignment
+ok 3 - arrays are contiguous and structures apply natural field and tail alignment
+  ---
+  duration_ms: 5.702
+  type: 'test'
+  ...
+# Subtest: array index boundary errors identify the access node and do not write any cell
+ok 4 - array index boundary errors identify the access node and do not write any cell
+  ---
+  duration_ms: 4.9994
+  type: 'test'
+  ...
+# Subtest: struct field bounds and dynamic mixed-type selection stop at the field node
+ok 5 - struct field bounds and dynamic mixed-type selection stop at the field node
+  ---
+  duration_ms: 4.1541
+  type: 'test'
+  ...
+# Subtest: out-of-range access through compare/arithmetic preserves the original error node
+ok 6 - out-of-range access through compare/arithmetic preserves the original error node
+  ---
+  duration_ms: 1.5198
+  type: 'test'
+  ...
+# Subtest: errors nested inside a calculation feeding a consumer keep access-node identity
+ok 7 - errors nested inside a calculation feeding a consumer keep access-node identity
+  ---
+  duration_ms: 1.9203
+  type: 'test'
+  ...
+# Subtest: first and last array cells are accessible and return correctly typed Ref and Address
+ok 8 - first and last array cells are accessible and return correctly typed Ref and Address
+  ---
+  duration_ms: 2.0966
+  type: 'test'
+  ...
+# Subtest: scalar operations increment/decrement array elements with width wrapping
+ok 9 - scalar operations increment/decrement array elements with width wrapping
+  ---
+  duration_ms: 2.6766
+  type: 'test'
+  ...
+# Subtest: raw API writes update individual fields and indexed change history
+ok 10 - raw API writes update individual fields and indexed change history
+  ---
+  duration_ms: 2.4877
+  type: 'test'
+  ...
+# Subtest: padding writes do not masquerade as field changes; adjacent fields stay intact
+ok 11 - padding writes do not masquerade as field changes; adjacent fields stay intact
+  ---
+  duration_ms: 1.9371
+  type: 'test'
+  ...
+# Subtest: returned local aggregate capabilities are invalid and snapshots remain readable
+ok 12 - returned local aggregate capabilities are invalid and snapshots remain readable
+  ---
+  duration_ms: 11.0496
+  type: 'test'
+  ...
+# Subtest: recursive local arrays have separate storage and initial state at each depth
+ok 13 - recursive local arrays have separate storage and initial state at each depth
+  ---
+  duration_ms: 52.21
+  type: 'test'
+  ...
+# Subtest: aggregate schema validation rejects invalid lengths, fields, pack and initializers
+ok 14 - aggregate schema validation rejects invalid lengths, fields, pack and initializers
+  ---
+  duration_ms: 5.9624
+  type: 'test'
+  ...
+# Subtest: typed root aggregate refs cannot be connected to scalar operations or wrong structures
+ok 15 - typed root aggregate refs cannot be connected to scalar operations or wrong structures
+  ---
+  duration_ms: 0.6592
+  type: 'test'
+  ...
+# Subtest: changing element or field types reconciles dependent pins without removing execution links
+ok 16 - changing element or field types reconciles dependent pins without removing execution links
+  ---
+  duration_ms: 0.8118
+  type: 'test'
+  ...
+# Subtest: JSON round trips retain aggregate definitions, dynamic field/index pins and scopes
+ok 17 - JSON round trips retain aggregate definitions, dynamic field/index pins and scopes
+  ---
+  duration_ms: 1.9138
+  type: 'test'
+  ...
+# Subtest: debugger renders BigInt fields safely and paginates all 4096 array elements
+ok 18 - debugger renders BigInt fields safely and paginates all 4096 array elements
+  ---
+  duration_ms: 70.3453
+  type: 'test'
+  ...
+# Subtest: array initialization snapshots are immutable after subsequent element writes
+ok 19 - array initialization snapshots are immutable after subsequent element writes
+  ---
+  duration_ms: 2.5026
+  type: 'test'
+  ...
+# Subtest: lazy access skips unreachable invalid indices instead of failing during graph validation
+ok 20 - lazy access skips unreachable invalid indices instead of failing during graph validation
+  ---
+  duration_ms: 4.8028
+  type: 'test'
+  ...
+# Subtest: DPC gets its own local array and shares the global structure with the interrupted routine
+ok 21 - DPC gets its own local array and shares the global structure with the interrupted routine
+  ---
+  duration_ms: 3.0804
+  type: 'test'
+  ...
+# Subtest: legacy branch keeps exactly its original input and execution port names
+ok 22 - legacy branch keeps exactly its original input and execution port names
+  ---
+  duration_ms: 8.7656
+  type: 'test'
+  ...
+# Subtest: else if counts 0, 1, 3, 16 and 64 dynamically generate complete unique ports
+ok 23 - else if counts 0, 1, 3, 16 and 64 dynamically generate complete unique ports
+  ---
+  duration_ms: 11.9092
+  type: 'test'
+  ...
+# Subtest: all eight else-if positions, initial if and fallback else route to exactly one matching output
+ok 24 - all eight else-if positions, initial if and fallback else route to exactly one matching output
+  ---
+  duration_ms: 18.1765
+  type: 'test'
+  ...
+# Subtest: short circuit skips unexecuted data dependencies on every later condition
+ok 25 - short circuit skips unexecuted data dependencies on every later condition
+  ---
+  duration_ms: 2.1823
+  type: 'test'
+  ...
+# Subtest: NT_SUCCESS evaluates only its left input even if right data is unavailable
+ok 26 - NT_SUCCESS evaluates only its left input even if right data is unavailable
+  ---
+  duration_ms: 1.265
+  type: 'test'
+  ...
+# Subtest: removing a middle condition deletes only its own input and output edges
+ok 27 - removing a middle condition deletes only its own input and output edges
+  ---
+  duration_ms: 1.698
+  type: 'test'
+  ...
+# Subtest: reordering conditions preserves edge identities and changes priority
+ok 28 - reordering conditions preserves edge identities and changes priority
+  ---
+  duration_ms: 1.1745
+  type: 'test'
+  ...
+# Subtest: all legacy else-if conditions can be removed and fresh cases re-added without breaking if/else
+ok 29 - all legacy else-if conditions can be removed and fresh cases re-added without breaking if/else
+  ---
+  duration_ms: 0.6367
+  type: 'test'
+  ...
+# Subtest: adding beyond 64, duplicate/malformed cases and invalid comparison operators are rejected
+ok 30 - adding beyond 64, duplicate/malformed cases and invalid comparison operators are rejected
+  ---
+  duration_ms: 29.7464
+  type: 'test'
+  ...
+# Subtest: graph JSON round trip preserves dynamic conditions, reordered priority and stable wires
+ok 31 - graph JSON round trip preserves dynamic conditions, reordered priority and stable wires
+  ---
+  duration_ms: 2.3168
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ExAllocatePool2
+ok 32 - EXPORT contract: ExAllocatePool2
+  ---
+  duration_ms: 9.7472
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ExAllocatePoolWithTag
+ok 33 - EXPORT contract: ExAllocatePoolWithTag
+  ---
+  duration_ms: 1.192
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ExFreePoolWithTag
+ok 34 - EXPORT contract: ExFreePoolWithTag
+  ---
+  duration_ms: 1.1708
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ExFreePool
+ok 35 - EXPORT contract: ExFreePool
+  ---
+  duration_ms: 1.2801
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlZeroMemory
+ok 36 - EXPORT contract: RtlZeroMemory
+  ---
+  duration_ms: 1.8467
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlFillMemory
+ok 37 - EXPORT contract: RtlFillMemory
+  ---
+  duration_ms: 1.5581
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlCopyMemory
+ok 38 - EXPORT contract: RtlCopyMemory
+  ---
+  duration_ms: 1.6282
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlMoveMemory
+ok 39 - EXPORT contract: RtlMoveMemory
+  ---
+  duration_ms: 1.0744
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlCompareMemory
+ok 40 - EXPORT contract: RtlCompareMemory
+  ---
+  duration_ms: 1.1006
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlInitUnicodeString
+ok 41 - EXPORT contract: RtlInitUnicodeString
+  ---
+  duration_ms: 1.5165
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlInitAnsiString
+ok 42 - EXPORT contract: RtlInitAnsiString
+  ---
+  duration_ms: 0.9079
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlInitString
+ok 43 - EXPORT contract: RtlInitString
+  ---
+  duration_ms: 0.6469
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: RtlEqualUnicodeString
+ok 44 - EXPORT contract: RtlEqualUnicodeString
+  ---
+  duration_ms: 0.9468
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeGetCurrentIrql
+ok 45 - EXPORT contract: KeGetCurrentIrql
+  ---
+  duration_ms: 0.553
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KfRaiseIrql
+ok 46 - EXPORT contract: KfRaiseIrql
+  ---
+  duration_ms: 7.0783
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeLowerIrql
+ok 47 - EXPORT contract: KeLowerIrql
+  ---
+  duration_ms: 1.8214
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeInitializeSpinLock
+ok 48 - EXPORT contract: KeInitializeSpinLock
+  ---
+  duration_ms: 1.124
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeAcquireSpinLockRaiseToDpc
+ok 49 - EXPORT contract: KeAcquireSpinLockRaiseToDpc
+  ---
+  duration_ms: 1.03
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeReleaseSpinLock
+ok 50 - EXPORT contract: KeReleaseSpinLock
+  ---
+  duration_ms: 1.0393
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeInitializeTimer
+ok 51 - EXPORT contract: KeInitializeTimer
+  ---
+  duration_ms: 1.4758
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeInitializeTimerEx
+ok 52 - EXPORT contract: KeInitializeTimerEx
+  ---
+  duration_ms: 0.7706
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeSetTimer
+ok 53 - EXPORT contract: KeSetTimer
+  ---
+  duration_ms: 1.0176
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeSetTimerEx
+ok 54 - EXPORT contract: KeSetTimerEx
+  ---
+  duration_ms: 8.6064
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeCancelTimer
+ok 55 - EXPORT contract: KeCancelTimer
+  ---
+  duration_ms: 0.5767
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeReadStateTimer
+ok 56 - EXPORT contract: KeReadStateTimer
+  ---
+  duration_ms: 0.4497
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeInitializeDpc
+ok 57 - EXPORT contract: KeInitializeDpc
+  ---
+  duration_ms: 0.6834
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeInsertQueueDpc
+ok 58 - EXPORT contract: KeInsertQueueDpc
+  ---
+  duration_ms: 0.6361
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeRemoveQueueDpc
+ok 59 - EXPORT contract: KeRemoveQueueDpc
+  ---
+  duration_ms: 0.5314
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeInitializeEvent
+ok 60 - EXPORT contract: KeInitializeEvent
+  ---
+  duration_ms: 0.5641
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeSetEvent
+ok 61 - EXPORT contract: KeSetEvent
+  ---
+  duration_ms: 0.79
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeResetEvent
+ok 62 - EXPORT contract: KeResetEvent
+  ---
+  duration_ms: 0.6489
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeClearEvent
+ok 63 - EXPORT contract: KeClearEvent
+  ---
+  duration_ms: 0.5663
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeReadStateEvent
+ok 64 - EXPORT contract: KeReadStateEvent
+  ---
+  duration_ms: 0.5444
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeDelayExecutionThread
+ok 65 - EXPORT contract: KeDelayExecutionThread
+  ---
+  duration_ms: 0.6787
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeWaitForSingleObject
+ok 66 - EXPORT contract: KeWaitForSingleObject
+  ---
+  duration_ms: 0.6534
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: DbgPrint
+ok 67 - EXPORT contract: DbgPrint
+  ---
+  duration_ms: 1.1926
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: DbgBreakPoint
+ok 68 - EXPORT contract: DbgBreakPoint
+  ---
+  duration_ms: 0.9947
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeBugCheckEx
+ok 69 - EXPORT contract: KeBugCheckEx
+  ---
+  duration_ms: 1.246
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeQueryTimeIncrement
+ok 70 - EXPORT contract: KeQueryTimeIncrement
+  ---
+  duration_ms: 2.6739
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeQueryPerformanceCounter
+ok 71 - EXPORT contract: KeQueryPerformanceCounter
+  ---
+  duration_ms: 0.9201
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeQuerySystemTimePrecise
+ok 72 - EXPORT contract: KeQuerySystemTimePrecise
+  ---
+  duration_ms: 0.8078
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: MmMapIoSpace
+ok 73 - EXPORT contract: MmMapIoSpace
+  ---
+  duration_ms: 1.464
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: MmMapIoSpaceEx
+ok 74 - EXPORT contract: MmMapIoSpaceEx
+  ---
+  duration_ms: 0.7555
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: MmUnmapIoSpace
+ok 75 - EXPORT contract: MmUnmapIoSpace
+  ---
+  duration_ms: 7.2829
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: IoCreateDevice
+ok 76 - EXPORT contract: IoCreateDevice
+  ---
+  duration_ms: 1.1469
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: IoDeleteDevice
+ok 77 - EXPORT contract: IoDeleteDevice
+  ---
+  duration_ms: 1.0191
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: IoCreateSymbolicLink
+ok 78 - EXPORT contract: IoCreateSymbolicLink
+  ---
+  duration_ms: 0.985
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: IoDeleteSymbolicLink
+ok 79 - EXPORT contract: IoDeleteSymbolicLink
+  ---
+  duration_ms: 0.7834
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: MmIsAddressValid
+ok 80 - EXPORT contract: MmIsAddressValid
+  ---
+  duration_ms: 0.5361
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeStackAttachProcess
+ok 81 - EXPORT contract: KeStackAttachProcess
+  ---
+  duration_ms: 0.6835
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: KeUnstackDetachProcess
+ok 82 - EXPORT contract: KeUnstackDetachProcess
+  ---
+  duration_ms: 1.539
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsGetCurrentProcess
+ok 83 - EXPORT contract: PsGetCurrentProcess
+  ---
+  duration_ms: 0.9206
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsGetCurrentProcessId
+ok 84 - EXPORT contract: PsGetCurrentProcessId
+  ---
+  duration_ms: 0.726
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsGetProcessId
+ok 85 - EXPORT contract: PsGetProcessId
+  ---
+  duration_ms: 0.6367
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsLookupProcessByProcessId
+ok 86 - EXPORT contract: PsLookupProcessByProcessId
+  ---
+  duration_ms: 0.6831
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ObfDereferenceObject
+ok 87 - EXPORT contract: ObfDereferenceObject
+  ---
+  duration_ms: 0.6868
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ZwOpenProcess
+ok 88 - EXPORT contract: ZwOpenProcess
+  ---
+  duration_ms: 0.897
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ZwClose
+ok 89 - EXPORT contract: ZwClose
+  ---
+  duration_ms: 0.6138
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ZwAllocateVirtualMemory
+ok 90 - EXPORT contract: ZwAllocateVirtualMemory
+  ---
+  duration_ms: 0.9488
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ZwFreeVirtualMemory
+ok 91 - EXPORT contract: ZwFreeVirtualMemory
+  ---
+  duration_ms: 1.9169
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: ZwProtectVirtualMemory
+ok 92 - EXPORT contract: ZwProtectVirtualMemory
+  ---
+  duration_ms: 0.9823
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsSetCreateProcessNotifyRoutine
+ok 93 - EXPORT contract: PsSetCreateProcessNotifyRoutine
+  ---
+  duration_ms: 1.1481
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsSetCreateProcessNotifyRoutineEx
+ok 94 - EXPORT contract: PsSetCreateProcessNotifyRoutineEx
+  ---
+  duration_ms: 0.7949
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsSetCreateThreadNotifyRoutine
+ok 95 - EXPORT contract: PsSetCreateThreadNotifyRoutine
+  ---
+  duration_ms: 0.8731
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsSetLoadImageNotifyRoutine
+ok 96 - EXPORT contract: PsSetLoadImageNotifyRoutine
+  ---
+  duration_ms: 0.7301
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsRemoveCreateThreadNotifyRoutine
+ok 97 - EXPORT contract: PsRemoveCreateThreadNotifyRoutine
+  ---
+  duration_ms: 1.0112
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: PsRemoveLoadImageNotifyRoutine
+ok 98 - EXPORT contract: PsRemoveLoadImageNotifyRoutine
+  ---
+  duration_ms: 17.1169
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: CmRegisterCallback
+ok 99 - EXPORT contract: CmRegisterCallback
+  ---
+  duration_ms: 0.9442
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: CmRegisterCallbackEx
+ok 100 - EXPORT contract: CmRegisterCallbackEx
+  ---
+  duration_ms: 1.4891
+  type: 'test'
+  ...
+# Subtest: EXPORT contract: CmUnRegisterCallback
+ok 101 - EXPORT contract: CmUnRegisterCallback
+  ---
+  duration_ms: 0.9169
+  type: 'test'
+  ...
+# Subtest: named placeholders produce one typed pin per unique name
+ok 102 - named placeholders produce one typed pin per unique name
+  ---
+  duration_ms: 5.7197
+  type: 'test'
+  ...
+# Subtest: duplicate, reserved, invalid and excessive print argument definitions are rejected
+ok 103 - duplicate, reserved, invalid and excessive print argument definitions are rejected
+  ---
+  duration_ms: 1.0457
+  type: 'test'
+  ...
+# Subtest: named style supports typed ANSI text, integers, hex, pointers and escaped braces
+ok 104 - named style supports typed ANSI text, integers, hex, pointers and escaped braces
+  ---
+  duration_ms: 1.1899
+  type: 'test'
+  ...
+# Subtest: missing placeholders and unsupported named formats fail explicitly
+ok 105 - missing placeholders and unsupported named formats fail explicitly
+  ---
+  duration_ms: 0.753
+  type: 'test'
+  ...
+# Subtest: printf supports signed width, unsigned, padded hex and percent
+ok 106 - printf supports signed width, unsigned, padded hex and percent
+  ---
+  duration_ms: 13.6701
+  type: 'test'
+  ...
+# Subtest: printf string arguments are not recursively interpreted
+ok 107 - printf string arguments are not recursively interpreted
+  ---
+  duration_ms: 14.4867
+  type: 'test'
+  ...
+# Subtest: floating point, dangerous writes and missing printf arguments are rejected
+ok 108 - floating point, dangerous writes and missing printf arguments are rejected
+  ---
+  duration_ms: 0.5207
+  type: 'test'
+  ...
+# Subtest: Unicode printing enforces passive level for named and printf styles
+ok 109 - Unicode printing enforces passive level for named and printf styles
+  ---
+  duration_ms: 0.9521
+  type: 'test'
+  ...
+# Subtest: breakpoint inspection does not allocate scalar or string data
+ok 110 - breakpoint inspection does not allocate scalar or string data
+  ---
+  duration_ms: 14.6071
+  type: 'test'
+  ...
+# Subtest: paused API stage returns captured argument rather than a later source edit
+ok 111 - paused API stage returns captured argument rather than a later source edit
+  ---
+  duration_ms: 4.7641
+  type: 'test'
+  ...
+# Subtest: running or inactive-graph argument inspection is refused
+ok 112 - running or inactive-graph argument inspection is refused
+  ---
+  duration_ms: 2.0223
+  type: 'test'
+  ...
+# Subtest: named DbgPrint executes, records a dedicated output log and returns success
+ok 113 - named DbgPrint executes, records a dedicated output log and returns success
+  ---
+  duration_ms: 18.2794
+  type: 'test'
+  ...
+# Subtest: output remains separate from general event retention
+ok 114 - output remains separate from general event retention
+  ---
+  duration_ms: 3.1297
+  type: 'test'
+  ...
+# Subtest: output cap never splits a UTF-8 character
+ok 115 - output cap never splits a UTF-8 character
+  ---
+  duration_ms: 1.4014
+  type: 'test'
+  ...
+# Subtest: legacy Format pointer with printf text remains compatible
+ok 116 - legacy Format pointer with printf text remains compatible
+  ---
+  duration_ms: 1.4156
+  type: 'test'
+  ...
+# Subtest: string tooltip reads the current stored bytes without allocation
+ok 117 - string tooltip reads the current stored bytes without allocation
+  ---
+  duration_ms: 2.7051
+  type: 'test'
+  ...
+# Subtest: UNICODE_STRING and invalid pointer tooltip previews remain read-only
+ok 118 - UNICODE_STRING and invalid pointer tooltip previews remain read-only
+  ---
+  duration_ms: 1.2535
+  type: 'test'
+  ...
+# Subtest: positional named arguments keep Format first in the displayed ABI register order
+ok 119 - positional named arguments keep Format first in the displayed ABI register order
+  ---
+  duration_ms: 3.9583
+  type: 'test'
+  ...
+# Subtest: all built-in enum and define members resolve to documented values
+ok 120 - all built-in enum and define members resolve to documented values
+  ---
+  duration_ms: 1.8615
+  type: 'test'
+  ...
+# Subtest: enum and define nodes emit typed values and never have execution pins
+ok 121 - enum and define nodes emit typed values and never have execution pins
+  ---
+  duration_ms: 2.5542
+  type: 'test'
+  ...
+# Subtest: custom enums allow explicit integer values and duplicate values, reject duplicate identifiers
+ok 122 - custom enums allow explicit integer values and duplicate values, reject duplicate identifiers
+  ---
+  duration_ms: 1.2032
+  type: 'test'
+  ...
+# Subtest: global defines are shared and resolve nested OR expressions without eval
+ok 123 - global defines are shared and resolve nested OR expressions without eval
+  ---
+  duration_ms: 0.9961
+  type: 'test'
+  ...
+# Subtest: global define cycles, reserved names, duplicate names and type drift are diagnosed
+ok 124 - global define cycles, reserved names, duplicate names and type drift are diagnosed
+  ---
+  duration_ms: 0.4936
+  type: 'test'
+  ...
+# Subtest: renaming a global define updates symbols and nodes, preserving literal strings and unrelated names
+ok 125 - renaming a global define updates symbols and nodes, preserving literal strings and unrelated names
+  ---
+  duration_ms: 0.8581
+  type: 'test'
+  ...
+# Subtest: a graph allocation consumes enum PoolType and a global NumberOfBytes definition
+ok 126 - a graph allocation consumes enum PoolType and a global NumberOfBytes definition
+  ---
+  duration_ms: 7.1605
+  type: 'test'
+  ...
+# Subtest: every fixed API argument renders a choice or flags control, not a text field
+ok 127 - every fixed API argument renders a choice or flags control, not a text field
+  ---
+  duration_ms: 1.7253
+  type: 'test'
+  ...
+# Subtest: pool flag choices enforce one base and preserve imported unknown expressions visibly
+ok 128 - pool flag choices enforce one base and preserve imported unknown expressions visibly
+  ---
+  duration_ms: 1.0287
+  type: 'test'
+  ...
+# Subtest: saved graph JSON round trip retains global definitions, enum members and flag expressions
+ok 129 - saved graph JSON round trip retains global definitions, enum members and flag expressions
+  ---
+  duration_ms: 1.2081
+  type: 'test'
+  ...
+# Subtest: global definitions preserve declared integer width through aliases and direct argument references
+ok 130 - global definitions preserve declared integer width through aliases and direct argument references
+  ---
+  duration_ms: 2.6687
+  type: 'test'
+  ...
+# Subtest: structure defaults initialize OBJECT_ATTRIBUTES.Length and retain editable unicode buffers
+ok 131 - structure defaults initialize OBJECT_ATTRIBUTES.Length and retain editable unicode buffers
+  ---
+  duration_ms: 1.1344
+  type: 'test'
+  ...
+# Subtest: invalid DPC signatures and invalid EVENT_TYPE/TIMER_TYPE cannot silently initialize objects
+ok 132 - invalid DPC signatures and invalid EVENT_TYPE/TIMER_TYPE cannot silently initialize objects
+  ---
+  duration_ms: 2.7627
+  type: 'test'
+  ...
+# Subtest: pool: exact bounds, reuse, tag mismatch and double free
+ok 133 - pool: exact bounds, reuse, tag mismatch and double free
+  ---
+  duration_ms: 3.8001
+  type: 'test'
+  ...
+# Subtest: subpage allocations stay inside a page; large allocations are page aligned
+ok 134 - subpage allocations stay inside a page; large allocations are page aligned
+  ---
+  duration_ms: 0.3506
+  type: 'test'
+  ...
+# Subtest: paged memory rejects access at DISPATCH_LEVEL
+ok 135 - paged memory rejects access at DISPATCH_LEVEL
+  ---
+  duration_ms: 0.4288
+  type: 'test'
+  ...
+# Subtest: normal insufficient resources returns NULL; not a bugcheck
+ok 136 - normal insufficient resources returns NULL; not a bugcheck
+  ---
+  duration_ms: 2.7546
+  type: 'test'
+  ...
+# Subtest: graph: DriverEntry -> allocation -> free -> return, no live pool blocks
+ok 137 - graph: DriverEntry -> allocation -> free -> return, no live pool blocks
+  ---
+  duration_ms: 11.4027
+  type: 'test'
+  ...
+# Subtest: graph: double free associates fault with the offending node
+ok 138 - graph: double free associates fault with the offending node
+  ---
+  duration_ms: 1.7314
+  type: 'test'
+  ...
+# Subtest: timer expiration enters DPC at IRQL 2 then restores DriverEntry context
+ok 139 - timer expiration enters DPC at IRQL 2 then restores DriverEntry context
+  ---
+  duration_ms: 3.5271
+  type: 'test'
+  ...
+# Subtest: scalar value nodes also provide addressable output storage
+ok 140 - scalar value nodes also provide addressable output storage
+  ---
+  duration_ms: 0.8642
+  type: 'test'
+  ...
+# Subtest: virtual MMIO completes after scheduler delay and emits IRQ
+ok 141 - virtual MMIO completes after scheduler delay and emits IRQ
+  ---
+  duration_ms: 2.8552
+  type: 'test'
+  ...
+# Subtest: export catalog excludes fabricated functions from execution
+ok 142 - export catalog excludes fabricated functions from execution
+  ---
+  duration_ms: 10.2084
+  type: 'test'
+  ...
+# Subtest: if / else if / else evaluates the selected path exactly once
+ok 143 - if / else if / else evaluates the selected path exactly once
+  ---
+  duration_ms: 5.0658
+  type: 'test'
+  ...
+# Subtest: manual DriverObject argument is passed into IoCreateDevice and object deletion reclaims storage
+ok 144 - manual DriverObject argument is passed into IoCreateDevice and object deletion reclaims storage
+  ---
+  duration_ms: 1.5336
+  type: 'test'
+  ...
+# Subtest: device allocation failure returns NTSTATUS and reclaims the partial object
+ok 145 - device allocation failure returns NTSTATUS and reclaims the partial object
+  ---
+  duration_ms: 0.797
+  type: 'test'
+  ...
+# Subtest: custom structure fields are addressable and typed, unicode lengths are byte counts
+ok 146 - custom structure fields are addressable and typed, unicode lengths are byte counts
+  ---
+  duration_ms: 0.7441
+  type: 'test'
+  ...
+# Subtest: cancelled timer does not signal or dispatch a DPC
+ok 147 - cancelled timer does not signal or dispatch a DPC
+  ---
+  duration_ms: 0.5033
+  type: 'test'
+  ...
+# Subtest: blocked waits can time out; zero-time polling is valid at DISPATCH_LEVEL
+ok 148 - blocked waits can time out; zero-time polling is valid at DISPATCH_LEVEL
+  ---
+  duration_ms: 0.6425
+  type: 'test'
+  ...
+# Subtest: an unconnected DriverEntry flow produces a model diagnostic, not false success
+ok 149 - an unconnected DriverEntry flow produces a model diagnostic, not false success
+  ---
+  duration_ms: 0.8722
+  type: 'test'
+  ...
+# Subtest: functions transfers typed arguments and returns correct result across clock partitions
+ok 150 - functions transfers typed arguments and returns correct result across clock partitions
+  ---
+  duration_ms: 37.2081
+  type: 'test'
+  ...
+# Subtest: function-nested transfers typed arguments and returns correct result across clock partitions
+ok 151 - function-nested transfers typed arguments and returns correct result across clock partitions
+  ---
+  duration_ms: 8.2855
+  type: 'test'
+  ...
+# Subtest: function-loop transfers typed arguments and returns correct result across clock partitions
+ok 152 - function-loop transfers typed arguments and returns correct result across clock partitions
+  ---
+  duration_ms: 20.7621
+  type: 'test'
+  ...
+# Subtest: function-recursion transfers typed arguments and returns correct result across clock partitions
+ok 153 - function-recursion transfers typed arguments and returns correct result across clock partitions
+  ---
+  duration_ms: 13.0271
+  type: 'test'
+  ...
+# Subtest: two call sites reuse one graph without mutating definition or caller outputs
+ok 154 - two call sites reuse one graph without mutating definition or caller outputs
+  ---
+  duration_ms: 7.2632
+  type: 'test'
+  ...
+# Subtest: recursive return unwinding preserves every invocation argument and multiplication
+ok 155 - recursive return unwinding preserves every invocation argument and multiplication
+  ---
+  duration_ms: 4.5567
+  type: 'test'
+  ...
+# Subtest: signed and unsigned argument and return widths are enforced
+ok 156 - signed and unsigned argument and return widths are enforced
+  ---
+  duration_ms: 4.9049
+  type: 'test'
+  ...
+# Subtest: VOID functions have no return data pin and return execution to caller
+ok 157 - VOID functions have no return data pin and return execution to caller
+  ---
+  duration_ms: 1.9863
+  type: 'test'
+  ...
+# Subtest: unconnected argument uses definition default; explicit zero overrides it
+ok 158 - unconnected argument uses definition default; explicit zero overrides it
+  ---
+  duration_ms: 1.6957
+  type: 'test'
+  ...
+# Subtest: pointer argument mutates shared caller storage, not a private copy
+ok 159 - pointer argument mutates shared caller storage, not a private copy
+  ---
+  duration_ms: 1.4166
+  type: 'test'
+  ...
+# Subtest: locals reset per call and are retired after return without leaking virtual memory
+ok 160 - locals reset per call and are retired after return without leaking virtual memory
+  ---
+  duration_ms: 11.3822
+  type: 'test'
+  ...
+# Subtest: returning local data pointer creates dangling memory; heap allocation survives
+ok 161 - returning local data pointer creates dangling memory; heap allocation survives
+  ---
+  duration_ms: 5.5603
+  type: 'test'
+  ...
+# Subtest: renaming function/argument retains stable pin IDs, wires and existing literals
+ok 162 - renaming function/argument retains stable pin IDs, wires and existing literals
+  ---
+  duration_ms: 1.0625
+  type: 'test'
+  ...
+# Subtest: removing argument prunes only that pin and adding argument seeds every call
+ok 163 - removing argument prunes only that pin and adding argument seeds every call
+  ---
+  duration_ms: 0.5237
+  type: 'test'
+  ...
+# Subtest: incompatible signature changes remove wires while preserving execution
+ok 164 - incompatible signature changes remove wires while preserving execution
+  ---
+  duration_ms: 0.2472
+  type: 'test'
+  ...
+# Subtest: definition removal deletes its graph and every call node across graphs
+ok 165 - definition removal deletes its graph and every call node across graphs
+  ---
+  duration_ms: 0.3954
+  type: 'test'
+  ...
+# Subtest: JSON round trip retains definitions, typed pins and graph ownership
+ok 166 - JSON round trip retains definitions, typed pins and graph ownership
+  ---
+  duration_ms: 1.2977
+  type: 'test'
+  ...
+# Subtest: definition and graph ownership validation reject malformed or cross-graph programs
+ok 167 - definition and graph ownership validation reject malformed or cross-graph programs
+  ---
+  duration_ms: 14.1873
+  type: 'test'
+  ...
+# Subtest: maximum function/parameter bounds are explicit and new definitions get unique IDs
+ok 168 - maximum function/parameter bounds are explicit and new definitions get unique IDs
+  ---
+  duration_ms: 13.4303
+  type: 'test'
+  ...
+# Subtest: unterminated function path stops at originating node, not a fake successful return
+ok 169 - unterminated function path stops at originating node, not a fake successful return
+  ---
+  duration_ms: 1.3124
+  type: 'test'
+  ...
+# Subtest: unbounded recursion stops at depth limit with a diagnostic, without host stack overflow
+ok 170 - unbounded recursion stops at depth limit with a diagnostic, without host stack overflow
+  ---
+  duration_ms: 3.7484
+  type: 'test'
+  ...
+# Subtest: API stages preserve user frames and pop only export/model stack on completion
+ok 171 - API stages preserve user frames and pop only export/model stack on completion
+  ---
+  duration_ms: 6.1559
+  type: 'test'
+  ...
+# Subtest: DPC interruption restores suspended function and isolates callback helper calls
+ok 172 - DPC interruption restores suspended function and isolates callback helper calls
+  ---
+  duration_ms: 1.8139
+  type: 'test'
+  ...
+# Subtest: scenario interruption can reuse same helper while suspended callee locals stay separate
+ok 173 - scenario interruption can reuse same helper while suspended callee locals stay separate
+  ---
+  duration_ms: 3.4231
+  type: 'test'
+  ...
+# Subtest: break inside helper cannot escape a caller loop
+ok 174 - break inside helper cannot escape a caller loop
+  ---
+  duration_ms: 1.8195
+  type: 'test'
+  ...
+# Subtest: stop cancels every active function invocation without advancing return flow
+ok 175 - stop cancels every active function invocation without advancing return flow
+  ---
+  duration_ms: 4.8419
+  type: 'test'
+  ...
+# Subtest: helper invoked in a caller loop restores its frame on every return
+ok 176 - helper invoked in a caller loop restores its frame on every return
+  ---
+  duration_ms: 3.2046
+  type: 'test'
+  ...
+# Subtest: callback routine values pass through typed helper pins into matching API
+ok 177 - callback routine values pass through typed helper pins into matching API
+  ---
+  duration_ms: 1.6727
+  type: 'test'
+  ...
+# Subtest: string descriptor pointer argument aliases caller-owned UNICODE_STRING
+ok 178 - string descriptor pointer argument aliases caller-owned UNICODE_STRING
+  ---
+  duration_ms: 1.1272
+  type: 'test'
+  ...
+# Subtest: completed recursive graph debugger shows last returned outer invocation, not deepest leaf
+ok 179 - completed recursive graph debugger shows last returned outer invocation, not deepest leaf
+  ---
+  duration_ms: 1.2656
+  type: 'test'
+  ...
+# Subtest: left down prevents native selection and captures the stable canvas
+ok 180 - left down prevents native selection and captures the stable canvas
+  ---
+  duration_ms: 7.3218
+  type: 'test'
+  ...
+# Subtest: right click and nonprimary pointers never start graph gestures
+ok 181 - right click and nonprimary pointers never start graph gestures
+  ---
+  duration_ms: 0.3763
+  type: 'test'
+  ...
+# Subtest: another pointer cannot replace, move or release the active pointer
+ok 182 - another pointer cannot replace, move or release the active pointer
+  ---
+  duration_ms: 0.3947
+  type: 'test'
+  ...
+# Subtest: slow movement accumulates distance from origin and release ends once
+ok 183 - slow movement accumulates distance from origin and release ends once
+  ---
+  duration_ms: 4.0123
+  type: 'test'
+  ...
+# Subtest: movement after release cannot move nodes or the camera
+ok 184 - movement after release cannot move nodes or the camera
+  ---
+  duration_ms: 0.2844
+  type: 'test'
+  ...
+# Subtest: missing pointerup is recovered by the actual left-button state
+ok 185 - missing pointerup is recovered by the actual left-button state
+  ---
+  duration_ms: 0.1977
+  type: 'test'
+  ...
+# Subtest: holding only the right button cannot prolong a left drag
+ok 186 - holding only the right button cannot prolong a left drag
+  ---
+  duration_ms: 0.2197
+  type: 'test'
+  ...
+# Subtest: releasing right button while left is held preserves the left drag
+ok 187 - releasing right button while left is held preserves the left drag
+  ---
+  duration_ms: 0.2317
+  type: 'test'
+  ...
+# Subtest: cancel clears capture and active state exactly once
+ok 188 - cancel clears capture and active state exactly once
+  ---
+  duration_ms: 0.3538
+  type: 'test'
+  ...
+# Subtest: capture-lost clears capture and active state exactly once
+ok 189 - capture-lost clears capture and active state exactly once
+  ---
+  duration_ms: 0.3312
+  type: 'test'
+  ...
+# Subtest: blur clears capture and active state exactly once
+ok 190 - blur clears capture and active state exactly once
+  ---
+  duration_ms: 0.1613
+  type: 'test'
+  ...
+# Subtest: hidden clears capture and active state exactly once
+ok 191 - hidden clears capture and active state exactly once
+  ---
+  duration_ms: 0.325
+  type: 'test'
+  ...
+# Subtest: escape clears capture and active state exactly once
+ok 192 - escape clears capture and active state exactly once
+  ---
+  duration_ms: 0.1168
+  type: 'test'
+  ...
+# Subtest: render clears capture and active state exactly once
+ok 193 - render clears capture and active state exactly once
+  ---
+  duration_ms: 0.1211
+  type: 'test'
+  ...
+# Subtest: capture failure still has release and button-state recovery
+ok 194 - capture failure still has release and button-state recovery
+  ---
+  duration_ms: 0.2145
+  type: 'test'
+  ...
+# Subtest: stationary pin click remains distinct from dragged wire
+ok 195 - stationary pin click remains distinct from dragged wire
+  ---
+  duration_ms: 0.23
+  type: 'test'
+  ...
+# Subtest: state is cleared before releasing capture or invoking application callbacks
+ok 196 - state is cleared before releasing capture or invoking application callbacks
+  ---
+  duration_ms: 0.5931
+  type: 'test'
+  ...
+# Subtest: for reads connected start/condition/step and yields Index 0..4 before completion
+ok 197 - for reads connected start/condition/step and yields Index 0..4 before completion
+  ---
+  duration_ms: 27.4804
+  type: 'test'
+  ...
+# Subtest: while rereads the mutable memory variable, calculating its increment in the body
+ok 198 - while rereads the mutable memory variable, calculating its increment in the body
+  ---
+  duration_ms: 2.423
+  type: 'test'
+  ...
+# Subtest: break and continue skip body work, with for increment on continue and no increment on break
+ok 199 - break and continue skip body work, with for increment on continue and no increment on break
+  ---
+  duration_ms: 3.2871
+  type: 'test'
+  ...
+# Subtest: nested break/continue affect only the innermost active loop; inner state resets per invocation
+ok 200 - nested break/continue affect only the innermost active loop; inner state resets per invocation
+  ---
+  duration_ms: 6.4797
+  type: 'test'
+  ...
+# Subtest: descending for uses a connected negative Step and the selected comparison operator
+ok 201 - descending for uses a connected negative Step and the selected comparison operator
+  ---
+  duration_ms: 11.0044
+  type: 'test'
+  ...
+# Subtest: false initial conditions execute zero bodies for both for and while
+ok 202 - false initial conditions execute zero bodies for both for and while
+  ---
+  duration_ms: 2.3661
+  type: 'test'
+  ...
+# Subtest: comparison mode without an explicit Condition wire reads Limit on every test
+ok 203 - comparison mode without an explicit Condition wire reads Limit on every test
+  ---
+  duration_ms: 1.4155
+  type: 'test'
+  ...
+# Subtest: explicit FALSE BOOL mode does not read unused comparison or increment inputs
+ok 204 - explicit FALSE BOOL mode does not read unused comparison or increment inputs
+  ---
+  duration_ms: 1.3842
+  type: 'test'
+  ...
+# Subtest: connected Step is reevaluated against current Index before each for increment
+ok 205 - connected Step is reevaluated against current Index before each for increment
+  ---
+  duration_ms: 2.3737
+  type: 'test'
+  ...
+# Subtest: BOOL Condition overrides the comparison and can derive from the current loop Iteration
+ok 206 - BOOL Condition overrides the comparison and can derive from the current loop Iteration
+  ---
+  duration_ms: 1.5924
+  type: 'test'
+  ...
+# Subtest: while continue directly rechecks the condition, without automatic increment
+ok 207 - while continue directly rechecks the condition, without automatic increment
+  ---
+  duration_ms: 2.3796
+  type: 'test'
+  ...
+# Subtest: per-loop guard catches zero increments and infinite while conditions as diagnostics, not BSOD
+ok 208 - per-loop guard catches zero increments and infinite while conditions as diagnostics, not BSOD
+  ---
+  duration_ms: 4.5852
+  type: 'test'
+  ...
+# Subtest: global model step guard still bounds repeated execution
+ok 209 - global model step guard still bounds repeated execution
+  ---
+  duration_ms: 1.7302
+  type: 'test'
+  ...
+# Subtest: break and continue outside a loop cannot jump into another context
+ok 210 - break and continue outside a loop cannot jump into another context
+  ---
+  duration_ms: 1.6527
+  type: 'test'
+  ...
+# Subtest: using normal entry for an active loop, or Repeat for an inactive loop, is diagnosed
+ok 211 - using normal entry for an active loop, or Repeat for an inactive loop, is diagnosed
+  ---
+  duration_ms: 2.4381
+  type: 'test'
+  ...
+# Subtest: missing loop body tail cannot silently return from a callback or driver
+ok 212 - missing loop body tail cannot silently return from a callback or driver
+  ---
+  duration_ms: 2.3994
+  type: 'test'
+  ...
+# Subtest: Repeat must target the current inner loop instead of crossing a nested frame
+ok 213 - Repeat must target the current inner loop instead of crossing a nested frame
+  ---
+  duration_ms: 1.6508
+  type: 'test'
+  ...
+# Subtest: Return inside a body exits the routine without running increment or loop completion
+ok 214 - Return inside a body exits the routine without running increment or loop completion
+  ---
+  duration_ms: 1.02
+  type: 'test'
+  ...
+# Subtest: pause/step and stop preserve observable counters without background increments
+ok 215 - pause/step and stop preserve observable counters without background increments
+  ---
+  duration_ms: 1.2409
+  type: 'test'
+  ...
+# Subtest: arithmetic and BOOL data nodes are live, typed, bounded and reject cycles/zero division
+ok 216 - arithmetic and BOOL data nodes are live, typed, bounded and reject cycles/zero division
+  ---
+  duration_ms: 4.4934
+  type: 'test'
+  ...
+# Subtest: same data source may feed both arithmetic operands without a false cycle
+ok 217 - same data source may feed both arithmetic operands without a false cycle
+  ---
+  duration_ms: 0.6162
+  type: 'test'
+  ...
+# Subtest: DPC interrupts preserve the driver loop frame and isolate break/continue scope
+ok 218 - DPC interrupts preserve the driver loop frame and isolate break/continue scope
+  ---
+  duration_ms: 6.159
+  type: 'test'
+  ...
+# Subtest: timed scenario loops use independent frames while an interrupted driver loop resumes
+ok 219 - timed scenario loops use independent frames while an interrupted driver loop resumes
+  ---
+  duration_ms: 2.0992
+  type: 'test'
+  ...
+# Subtest: clock partitions preserve loop counts, memory and break/continue ordering
+ok 220 - clock partitions preserve loop counts, memory and break/continue ordering
+  ---
+  duration_ms: 45.1102
+  type: 'test'
+  ...
+# Subtest: JSON round trips retain loop data connections and distinct Repeat execution inputs
+ok 221 - JSON round trips retain loop data connections and distinct Repeat execution inputs
+  ---
+  duration_ms: 1.3028
+  type: 'test'
+  ...
+# Subtest: loop body executes export API stages on each iteration and releases each allocation
+ok 222 - loop body executes export API stages on each iteration and releases each allocation
+  ---
+  duration_ms: 5.1788
+  type: 'test'
+  ...
+# Subtest: arithmetic operations use signed 64-bit values with explicit division/shift diagnostics
+ok 223 - arithmetic operations use signed 64-bit values with explicit division/shift diagnostics
+  ---
+  duration_ms: 0.7309
+  type: 'test'
+  ...
+# Subtest: VM round trips: reserve, commit, zero pages, decommit and release
+ok 224 - VM round trips: reserve, commit, zero pages, decommit and release
+  ---
+  duration_ms: 18.9392
+  type: 'test'
+  ...
+# Subtest: same numeric user VA belongs to different process address spaces
+ok 225 - same numeric user VA belongs to different process address spaces
+  ---
+  duration_ms: 3.4016
+  type: 'test'
+  ...
+# Subtest: nested attach is LIFO and direct user reads require pageable-safe IRQL
+ok 226 - nested attach is LIFO and direct user reads require pageable-safe IRQL
+  ---
+  duration_ms: 1.107
+  type: 'test'
+  ...
+# Subtest: handle rights, ownership, close and stale handles return NTSTATUS
+ok 227 - handle rights, ownership, close and stale handles return NTSTATUS
+  ---
+  duration_ms: 1.2347
+  type: 'test'
+  ...
+# Subtest: VM errors are status returns without state mutation
+ok 228 - VM errors are status returns without state mutation
+  ---
+  duration_ms: 12.4537
+  type: 'test'
+  ...
+# Subtest: page protection and one-shot guards are enforced
+ok 229 - page protection and one-shot guards are enforced
+  ---
+  duration_ms: 1.4388
+  type: 'test'
+  ...
+# Subtest: sparse reservation rendering does not materialize reserved pages
+ok 230 - sparse reservation rendering does not materialize reserved pages
+  ---
+  duration_ms: 1.9244
+  type: 'test'
+  ...
+# Subtest: 1000 ms Run timer creates a process after registration and invokes compatible handler
+ok 231 - 1000 ms Run timer creates a process after registration and invokes compatible handler
+  ---
+  duration_ms: 6.5363
+  type: 'test'
+  ...
+# Subtest: events before registration do not replay as newly registered callbacks
+ok 232 - events before registration do not replay as newly registered callbacks
+  ---
+  duration_ms: 2.1767
+  type: 'test'
+  ...
+# Subtest: unregister before event suppresses notifications
+ok 233 - unregister before event suppresses notifications
+  ---
+  duration_ms: 2.7614
+  type: 'test'
+  ...
+# Subtest: process creation veto uses CreationStatus, not the VOID handler return value
+ok 234 - process creation veto uses CreationStatus, not the VOID handler return value
+  ---
+  duration_ms: 1.5021
+  type: 'test'
+  ...
+# Subtest: process, thread and image notifications expose their exact primary arguments
+ok 235 - process, thread and image notifications expose their exact primary arguments
+  ---
+  duration_ms: 4.8448
+  type: 'test'
+  ...
+# Subtest: signature mismatches fail validation; duplicate registration returns invalid parameter
+ok 236 - signature mismatches fail validation; duplicate registration returns invalid parameter
+  ---
+  duration_ms: 1.9565
+  type: 'test'
+  ...
+# Subtest: force-integrity requirement is represented for process Ex notification registration
+ok 237 - force-integrity requirement is represented for process Ex notification registration
+  ---
+  duration_ms: 0.7193
+  type: 'test'
+  ...
+# Subtest: registry callback context and pre-notification veto determine whether a value is committed
+ok 238 - registry callback context and pre-notification veto determine whether a value is committed
+  ---
+  duration_ms: 3.0898
+  type: 'test'
+  ...
+# Subtest: kernel ABI register view receives API argument values and NTSTATUS return
+ok 239 - kernel ABI register view receives API argument values and NTSTATUS return
+  ---
+  duration_ms: 2.0174
+  type: 'test'
+  ...
+# Subtest: virtual clock partitioning and 0.5–20x playback preserve notification order and 1000ms deadline
+ok 240 - virtual clock partitioning and 0.5–20x playback preserve notification order and 1000ms deadline
+  ---
+  duration_ms: 25.2469
+  type: 'test'
+  ...
+# Subtest: 72 notification timing combinations obey registration/removal lifetime
+ok 241 - 72 notification timing combinations obey registration/removal lifetime
+  ---
+  duration_ms: 102.1354
+  type: 'test'
+  ...
+# Subtest: registry altitude order is descending, and a veto suppresses lower callbacks
+ok 242 - registry altitude order is descending, and a veto suppresses lower callbacks
+  ---
+  duration_ms: 5.1468
+  type: 'test'
+  ...
+# Subtest: multiple legacy registry callbacks are allowed and ordered ahead of altitude callbacks
+ok 243 - multiple legacy registry callbacks are allowed and ordered ahead of altitude callbacks
+  ---
+  duration_ms: 1.3398
+  type: 'test'
+  ...
+# Subtest: typed connections reject physical-address-as-pointer and descriptor-as-pointer-output
+ok 244 - typed connections reject physical-address-as-pointer and descriptor-as-pointer-output
+  ---
+  duration_ms: 0.2377
+  type: 'test'
+  ...
+# Subtest: read-only MMIO mappings reject writes and aliased mappings observe the same device bytes
+ok 245 - read-only MMIO mappings reject writes and aliased mappings observe the same device bytes
+  ---
+  duration_ms: 18.6729
+  type: 'test'
+  ...
+# Subtest: unsupported MMIO protection/cache flags stop before allocating any mapping
+ok 246 - unsupported MMIO protection/cache flags stop before allocating any mapping
+  ---
+  duration_ms: 2.2579
+  type: 'test'
+  ...
+# Subtest: DDI IRQL boundary violations stop before changing objects
+ok 247 - DDI IRQL boundary violations stop before changing objects
+  ---
+  duration_ms: 8.1344
+  type: 'test'
+  ...
+# Subtest: periodic timer cancellation cancels a queued associated DPC, without aborting a running DPC
+ok 248 - periodic timer cancellation cancels a queued associated DPC, without aborting a running DPC
+  ---
+  duration_ms: 1.3346
+  type: 'test'
+  ...
+# Subtest: ABI values use the declared integer width, signedness and pseudo-handle representation
+ok 249 - ABI values use the declared integer width, signedness and pseudo-handle representation
+  ---
+  duration_ms: 0.3717
+  type: 'test'
+  ...
+# Subtest: failed process image/stack commitment rolls back partial pages and returns Status
+ok 250 - failed process image/stack commitment rolls back partial pages and returns Status
+  ---
+  duration_ms: 1.5937
+  type: 'test'
+  ...
+# Subtest: released process VM remains inaccessible while a surviving handle keeps object identity alive
+ok 251 - released process VM remains inaccessible while a surviving handle keeps object identity alive
+  ---
+  duration_ms: 1.1347
+  type: 'test'
+  ...
+# Subtest: 4096 seeded pool operations preserve non-overlap, alignment, live bytes and coalescing
+ok 252 - 4096 seeded pool operations preserve non-overlap, alignment, live bytes and coalescing
+  ---
+  duration_ms: 65.9581
+  type: 'test'
+  ...
+# Subtest: 1024 seeded VA transitions preserve address-space separation and page zeroing after recommit
+ok 253 - 1024 seeded VA transitions preserve address-space separation and page zeroing after recommit
+  ---
+  duration_ms: 71.435
+  type: 'test'
+  ...
+# Subtest: Step Into enters a user function and captures its invocation arguments
+ok 254 - Step Into enters a user function and captures its invocation arguments
+  ---
+  duration_ms: 18.7571
+  type: 'test'
+  ...
+# Subtest: Step Over calls the function once and pauses at the caller continuation
+ok 255 - Step Over calls the function once and pauses at the caller continuation
+  ---
+  duration_ms: 3.0729
+  type: 'test'
+  ...
+# Subtest: Step Out returns from exactly the active invocation
+ok 256 - Step Out returns from exactly the active invocation
+  ---
+  duration_ms: 2.552
+  type: 'test'
+  ...
+# Subtest: Step Over handles recursive calls by invocation identity, not graph name
+ok 257 - Step Over handles recursive calls by invocation identity, not graph name
+  ---
+  duration_ms: 9.8143
+  type: 'test'
+  ...
+# Subtest: Step Over and Out honor breakpoints encountered inside a callee
+ok 258 - Step Over and Out honor breakpoints encountered inside a callee
+  ---
+  duration_ms: 2.7933
+  type: 'test'
+  ...
+# Subtest: Step Into intentionally passes the current breakpoint but stops at later ones
+ok 259 - Step Into intentionally passes the current breakpoint but stops at later ones
+  ---
+  duration_ms: 1.5429
+  type: 'test'
+  ...
+# Subtest: Step Into on EXPORT enters argument capture and advances one internal phase at a time
+ok 260 - Step Into on EXPORT enters argument capture and advances one internal phase at a time
+  ---
+  duration_ms: 2.0226
+  type: 'test'
+  ...
+# Subtest: Step Over EXPORT runs all phases and allocates memory exactly once
+ok 261 - Step Over EXPORT runs all phases and allocates memory exactly once
+  ---
+  duration_ms: 2.0587
+  type: 'test'
+  ...
+# Subtest: Step Out while inside EXPORT returns only from that API
+ok 262 - Step Out while inside EXPORT returns only from that API
+  ---
+  duration_ms: 2.1561
+  type: 'test'
+  ...
+# Subtest: Step Out from DriverEntry finishes it without pretending there is a caller
+ok 263 - Step Out from DriverEntry finishes it without pretending there is a caller
+  ---
+  duration_ms: 1.9468
+  type: 'test'
+  ...
+# Subtest: explicit DbgBreakPoint interrupts an enclosing Step Out
+ok 264 - explicit DbgBreakPoint interrupts an enclosing Step Out
+  ---
+  duration_ms: 8.3869
+  type: 'test'
+  ...
+# Subtest: API faults interrupt stepping and preserve the offending execution node
+ok 265 - API faults interrupt stepping and preserve the offending execution node
+  ---
+  duration_ms: 3.9813
+  type: 'test'
+  ...
+# Subtest: step command on an idle engine only initializes DriverEntry
+ok 266 - step command on an idle engine only initializes DriverEntry
+  ---
+  duration_ms: 1.0558
+  type: 'test'
+  ...
+# Subtest: debug execution markers use independent invocation scopes
+ok 267 - debug execution markers use independent invocation scopes
+  ---
+  duration_ms: 1.2724
+  type: 'test'
+  ...
+# Subtest: long stepping yields to the UI and can be cancelled without further execution
+ok 268 - long stepping yields to the UI and can be cancelled without further execution
+  ---
+  duration_ms: 4.0992
+  type: 'test'
+  ...
+# Subtest: concurrent commands do not execute the same call twice
+ok 269 - concurrent commands do not execute the same call twice
+  ---
+  duration_ms: 50.3443
+  type: 'test'
+  ...
+# Subtest: bounded indefinite wait returns control to the user
+ok 270 - bounded indefinite wait returns control to the user
+  ---
+  duration_ms: 1.4996
+  type: 'test'
+  ...
+# Subtest: static read-only CFG matches this image and includes the actual pool call target
+ok 271 - static read-only CFG matches this image and includes the actual pool call target
+  ---
+  duration_ms: 20.6533
+  type: 'test'
+  ...
+# Subtest: pool reservation and zero initialization occur in separate executable steps
+ok 272 - pool reservation and zero initialization occur in separate executable steps
+  ---
+  duration_ms: 1.3392
+  type: 'test'
+  ...
+# Subtest: UNINITIALIZED pool flag preserves bytes through the initialization step
+ok 273 - UNINITIALIZED pool flag preserves bytes through the initialization step
+  ---
+  duration_ms: 1.4989
+  type: 'test'
+  ...
+# Subtest: pool IRQL errors are raised in the validation node before any reservation
+ok 274 - pool IRQL errors are raised in the validation node before any reservation
+  ---
+  duration_ms: 1.0109
+  type: 'test'
+  ...
+# Subtest: reservation failure with RAISE_ON_FAILURE stops at the reservation node
+ok 275 - reservation failure with RAISE_ON_FAILURE stops at the reservation node
+  ---
+  duration_ms: 1.1347
+  type: 'test'
+  ...
+# Subtest: Step Out preserves a suspended EXPORT stage across a DPC callback
+ok 276 - Step Out preserves a suspended EXPORT stage across a DPC callback
+  ---
+  duration_ms: 1.8848
+  type: 'test'
+  ...
+# Subtest: Step Out of a DPC breakpoint restores the interrupted API caller
+ok 277 - Step Out of a DPC breakpoint restores the interrupted API caller
+  ---
+  duration_ms: 1.4398
+  type: 'test'
+  ...
+# Subtest: ULONG32 is usable in single variables, arrays and structured fields
+ok 278 - ULONG32 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 25.802
+  type: 'test'
+  ...
+# Subtest: ULONG is usable in single variables, arrays and structured fields
+ok 279 - ULONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.9021
+  type: 'test'
+  ...
+# Subtest: LONG is usable in single variables, arrays and structured fields
+ok 280 - LONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.7874
+  type: 'test'
+  ...
+# Subtest: NTSTATUS is usable in single variables, arrays and structured fields
+ok 281 - NTSTATUS is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 8.2034
+  type: 'test'
+  ...
+# Subtest: USHORT is usable in single variables, arrays and structured fields
+ok 282 - USHORT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.7881
+  type: 'test'
+  ...
+# Subtest: UCHAR is usable in single variables, arrays and structured fields
+ok 283 - UCHAR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 3.1139
+  type: 'test'
+  ...
+# Subtest: BOOLEAN is usable in single variables, arrays and structured fields
+ok 284 - BOOLEAN is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 4.6823
+  type: 'test'
+  ...
+# Subtest: ULONG64 is usable in single variables, arrays and structured fields
+ok 285 - ULONG64 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 12.7516
+  type: 'test'
+  ...
+# Subtest: SIZE_T is usable in single variables, arrays and structured fields
+ok 286 - SIZE_T is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.3572
+  type: 'test'
+  ...
+# Subtest: PVOID is usable in single variables, arrays and structured fields
+ok 287 - PVOID is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.5526
+  type: 'test'
+  ...
+# Subtest: LARGE_INTEGER is usable in single variables, arrays and structured fields
+ok 288 - LARGE_INTEGER is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.4348
+  type: 'test'
+  ...
+# Subtest: PHYSICAL_ADDRESS is usable in single variables, arrays and structured fields
+ok 289 - PHYSICAL_ADDRESS is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.4282
+  type: 'test'
+  ...
+# Subtest: PVOID_SLOT is usable in single variables, arrays and structured fields
+ok 290 - PVOID_SLOT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 3.36
+  type: 'test'
+  ...
+# Subtest: ANSI is usable in single variables, arrays and structured fields
+ok 291 - ANSI is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.4939
+  type: 'test'
+  ...
+# Subtest: WCHAR is usable in single variables, arrays and structured fields
+ok 292 - WCHAR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 5.5965
+  type: 'test'
+  ...
+# Subtest: UNICODE_STRING is usable in single variables, arrays and structured fields
+ok 293 - UNICODE_STRING is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.035
+  type: 'test'
+  ...
+# Subtest: ANSI_STRING is usable in single variables, arrays and structured fields
+ok 294 - ANSI_STRING is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.8064
+  type: 'test'
+  ...
+# Subtest: KTIMER is usable in single variables, arrays and structured fields
+ok 295 - KTIMER is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.1989
+  type: 'test'
+  ...
+# Subtest: KDPC is usable in single variables, arrays and structured fields
+ok 296 - KDPC is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.6151
+  type: 'test'
+  ...
+# Subtest: KEVENT is usable in single variables, arrays and structured fields
+ok 297 - KEVENT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.1699
+  type: 'test'
+  ...
+# Subtest: KSPIN_LOCK is usable in single variables, arrays and structured fields
+ok 298 - KSPIN_LOCK is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.0235
+  type: 'test'
+  ...
+# Subtest: KMUTEX is usable in single variables, arrays and structured fields
+ok 299 - KMUTEX is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.9892
+  type: 'test'
+  ...
+# Subtest: KSEMAPHORE is usable in single variables, arrays and structured fields
+ok 300 - KSEMAPHORE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 4.7152
+  type: 'test'
+  ...
+# Subtest: KAPC is usable in single variables, arrays and structured fields
+ok 301 - KAPC is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.3549
+  type: 'test'
+  ...
+# Subtest: DRIVER_OBJECT is usable in single variables, arrays and structured fields
+ok 302 - DRIVER_OBJECT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9862
+  type: 'test'
+  ...
+# Subtest: DEVICE_OBJECT is usable in single variables, arrays and structured fields
+ok 303 - DEVICE_OBJECT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.8909
+  type: 'test'
+  ...
+# Subtest: IO_STATUS_BLOCK is usable in single variables, arrays and structured fields
+ok 304 - IO_STATUS_BLOCK is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.4553
+  type: 'test'
+  ...
+# Subtest: OBJECT_ATTRIBUTES is usable in single variables, arrays and structured fields
+ok 305 - OBJECT_ATTRIBUTES is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.9271
+  type: 'test'
+  ...
+# Subtest: LIST_ENTRY is usable in single variables, arrays and structured fields
+ok 306 - LIST_ENTRY is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.1478
+  type: 'test'
+  ...
+# Subtest: CUSTOM_STRUCT is usable in single variables, arrays and structured fields
+ok 307 - CUSTOM_STRUCT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.7824
+  type: 'test'
+  ...
+# Subtest: HANDLE is usable in single variables, arrays and structured fields
+ok 308 - HANDLE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 5.1056
+  type: 'test'
+  ...
+# Subtest: ULONG_PTR is usable in single variables, arrays and structured fields
+ok 309 - ULONG_PTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7494
+  type: 'test'
+  ...
+# Subtest: KAPC_STATE is usable in single variables, arrays and structured fields
+ok 310 - KAPC_STATE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.02
+  type: 'test'
+  ...
+# Subtest: EPROCESS is usable in single variables, arrays and structured fields
+ok 311 - EPROCESS is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.3178
+  type: 'test'
+  ...
+# Subtest: PS_CREATE_NOTIFY_INFO is usable in single variables, arrays and structured fields
+ok 312 - PS_CREATE_NOTIFY_INFO is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.3672
+  type: 'test'
+  ...
+# Subtest: IMAGE_INFO is usable in single variables, arrays and structured fields
+ok 313 - IMAGE_INFO is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.451
+  type: 'test'
+  ...
+# Subtest: REG_SET_VALUE_KEY_INFORMATION is usable in single variables, arrays and structured fields
+ok 314 - REG_SET_VALUE_KEY_INFORMATION is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9524
+  type: 'test'
+  ...
+# Subtest: CLIENT_ID is usable in single variables, arrays and structured fields
+ok 315 - CLIENT_ID is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9513
+  type: 'test'
+  ...
+# Subtest: CHAR is usable in single variables, arrays and structured fields
+ok 316 - CHAR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7804
+  type: 'test'
+  ...
+# Subtest: SHORT is usable in single variables, arrays and structured fields
+ok 317 - SHORT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 3.2806
+  type: 'test'
+  ...
+# Subtest: INT is usable in single variables, arrays and structured fields
+ok 318 - INT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.5926
+  type: 'test'
+  ...
+# Subtest: INT32 is usable in single variables, arrays and structured fields
+ok 319 - INT32 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7577
+  type: 'test'
+  ...
+# Subtest: INT64 is usable in single variables, arrays and structured fields
+ok 320 - INT64 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.652
+  type: 'test'
+  ...
+# Subtest: LONGLONG is usable in single variables, arrays and structured fields
+ok 321 - LONGLONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4243
+  type: 'test'
+  ...
+# Subtest: LONG_PTR is usable in single variables, arrays and structured fields
+ok 322 - LONG_PTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4416
+  type: 'test'
+  ...
+# Subtest: SSIZE_T is usable in single variables, arrays and structured fields
+ok 323 - SSIZE_T is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.3285
+  type: 'test'
+  ...
+# Subtest: BYTE is usable in single variables, arrays and structured fields
+ok 324 - BYTE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.5532
+  type: 'test'
+  ...
+# Subtest: WORD is usable in single variables, arrays and structured fields
+ok 325 - WORD is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.8024
+  type: 'test'
+  ...
+# Subtest: DWORD is usable in single variables, arrays and structured fields
+ok 326 - DWORD is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 4.1673
+  type: 'test'
+  ...
+# Subtest: UINT is usable in single variables, arrays and structured fields
+ok 327 - UINT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7101
+  type: 'test'
+  ...
+# Subtest: UINT32 is usable in single variables, arrays and structured fields
+ok 328 - UINT32 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2468
+  type: 'test'
+  ...
+# Subtest: UINT64 is usable in single variables, arrays and structured fields
+ok 329 - UINT64 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.0075
+  type: 'test'
+  ...
+# Subtest: ULONGLONG is usable in single variables, arrays and structured fields
+ok 330 - ULONGLONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.6583
+  type: 'test'
+  ...
+# Subtest: UINT_PTR is usable in single variables, arrays and structured fields
+ok 331 - UINT_PTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.49
+  type: 'test'
+  ...
+# Subtest: PULONG32 is usable in single variables, arrays and structured fields
+ok 332 - PULONG32 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.0792
+  type: 'test'
+  ...
+# Subtest: PULONG is usable in single variables, arrays and structured fields
+ok 333 - PULONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7243
+  type: 'test'
+  ...
+# Subtest: PLONG is usable in single variables, arrays and structured fields
+ok 334 - PLONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.8153
+  type: 'test'
+  ...
+# Subtest: PNTSTATUS is usable in single variables, arrays and structured fields
+ok 335 - PNTSTATUS is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 3.1006
+  type: 'test'
+  ...
+# Subtest: PUSHORT is usable in single variables, arrays and structured fields
+ok 336 - PUSHORT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9797
+  type: 'test'
+  ...
+# Subtest: PUCHAR is usable in single variables, arrays and structured fields
+ok 337 - PUCHAR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.6206
+  type: 'test'
+  ...
+# Subtest: PBOOLEAN is usable in single variables, arrays and structured fields
+ok 338 - PBOOLEAN is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5262
+  type: 'test'
+  ...
+# Subtest: PULONG64 is usable in single variables, arrays and structured fields
+ok 339 - PULONG64 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5349
+  type: 'test'
+  ...
+# Subtest: PSIZE_T is usable in single variables, arrays and structured fields
+ok 340 - PSIZE_T is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.1045
+  type: 'test'
+  ...
+# Subtest: PLARGE_INTEGER is usable in single variables, arrays and structured fields
+ok 341 - PLARGE_INTEGER is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9674
+  type: 'test'
+  ...
+# Subtest: PPHYSICAL_ADDRESS is usable in single variables, arrays and structured fields
+ok 342 - PPHYSICAL_ADDRESS is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7782
+  type: 'test'
+  ...
+# Subtest: PPVOID_SLOT is usable in single variables, arrays and structured fields
+ok 343 - PPVOID_SLOT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.1319
+  type: 'test'
+  ...
+# Subtest: PANSI is usable in single variables, arrays and structured fields
+ok 344 - PANSI is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 4.6739
+  type: 'test'
+  ...
+# Subtest: PWCHAR is usable in single variables, arrays and structured fields
+ok 345 - PWCHAR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9509
+  type: 'test'
+  ...
+# Subtest: PUNICODE_STRING is usable in single variables, arrays and structured fields
+ok 346 - PUNICODE_STRING is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5168
+  type: 'test'
+  ...
+# Subtest: PANSI_STRING is usable in single variables, arrays and structured fields
+ok 347 - PANSI_STRING is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4163
+  type: 'test'
+  ...
+# Subtest: PKTIMER is usable in single variables, arrays and structured fields
+ok 348 - PKTIMER is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4021
+  type: 'test'
+  ...
+# Subtest: PKDPC is usable in single variables, arrays and structured fields
+ok 349 - PKDPC is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.0454
+  type: 'test'
+  ...
+# Subtest: PKEVENT is usable in single variables, arrays and structured fields
+ok 350 - PKEVENT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2897
+  type: 'test'
+  ...
+# Subtest: PKSPIN_LOCK is usable in single variables, arrays and structured fields
+ok 351 - PKSPIN_LOCK is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.236
+  type: 'test'
+  ...
+# Subtest: PKMUTEX is usable in single variables, arrays and structured fields
+ok 352 - PKMUTEX is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.3704
+  type: 'test'
+  ...
+# Subtest: PKSEMAPHORE is usable in single variables, arrays and structured fields
+ok 353 - PKSEMAPHORE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.9686
+  type: 'test'
+  ...
+# Subtest: PKAPC is usable in single variables, arrays and structured fields
+ok 354 - PKAPC is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9739
+  type: 'test'
+  ...
+# Subtest: PDRIVER_OBJECT is usable in single variables, arrays and structured fields
+ok 355 - PDRIVER_OBJECT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.3149
+  type: 'test'
+  ...
+# Subtest: PDEVICE_OBJECT is usable in single variables, arrays and structured fields
+ok 356 - PDEVICE_OBJECT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2309
+  type: 'test'
+  ...
+# Subtest: PIO_STATUS_BLOCK is usable in single variables, arrays and structured fields
+ok 357 - PIO_STATUS_BLOCK is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.8451
+  type: 'test'
+  ...
+# Subtest: POBJECT_ATTRIBUTES is usable in single variables, arrays and structured fields
+ok 358 - POBJECT_ATTRIBUTES is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.8981
+  type: 'test'
+  ...
+# Subtest: PLIST_ENTRY is usable in single variables, arrays and structured fields
+ok 359 - PLIST_ENTRY is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.8314
+  type: 'test'
+  ...
+# Subtest: PCUSTOM_STRUCT is usable in single variables, arrays and structured fields
+ok 360 - PCUSTOM_STRUCT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.5623
+  type: 'test'
+  ...
+# Subtest: PHANDLE is usable in single variables, arrays and structured fields
+ok 361 - PHANDLE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2176
+  type: 'test'
+  ...
+# Subtest: PULONG_PTR is usable in single variables, arrays and structured fields
+ok 362 - PULONG_PTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 3.0032
+  type: 'test'
+  ...
+# Subtest: PKAPC_STATE is usable in single variables, arrays and structured fields
+ok 363 - PKAPC_STATE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9713
+  type: 'test'
+  ...
+# Subtest: PEPROCESS is usable in single variables, arrays and structured fields
+ok 364 - PEPROCESS is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5144
+  type: 'test'
+  ...
+# Subtest: PPS_CREATE_NOTIFY_INFO is usable in single variables, arrays and structured fields
+ok 365 - PPS_CREATE_NOTIFY_INFO is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4767
+  type: 'test'
+  ...
+# Subtest: PIMAGE_INFO is usable in single variables, arrays and structured fields
+ok 366 - PIMAGE_INFO is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4795
+  type: 'test'
+  ...
+# Subtest: PREG_SET_VALUE_KEY_INFORMATION is usable in single variables, arrays and structured fields
+ok 367 - PREG_SET_VALUE_KEY_INFORMATION is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7518
+  type: 'test'
+  ...
+# Subtest: PCLIENT_ID is usable in single variables, arrays and structured fields
+ok 368 - PCLIENT_ID is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.5822
+  type: 'test'
+  ...
+# Subtest: PCHAR is usable in single variables, arrays and structured fields
+ok 369 - PCHAR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.4455
+  type: 'test'
+  ...
+# Subtest: PSHORT is usable in single variables, arrays and structured fields
+ok 370 - PSHORT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.4503
+  type: 'test'
+  ...
+# Subtest: PINT is usable in single variables, arrays and structured fields
+ok 371 - PINT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.6076
+  type: 'test'
+  ...
+# Subtest: PINT32 is usable in single variables, arrays and structured fields
+ok 372 - PINT32 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.9446
+  type: 'test'
+  ...
+# Subtest: PINT64 is usable in single variables, arrays and structured fields
+ok 373 - PINT64 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.0729
+  type: 'test'
+  ...
+# Subtest: PLONGLONG is usable in single variables, arrays and structured fields
+ok 374 - PLONGLONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.6354
+  type: 'test'
+  ...
+# Subtest: PLONG_PTR is usable in single variables, arrays and structured fields
+ok 375 - PLONG_PTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4944
+  type: 'test'
+  ...
+# Subtest: PSSIZE_T is usable in single variables, arrays and structured fields
+ok 376 - PSSIZE_T is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5629
+  type: 'test'
+  ...
+# Subtest: PBYTE is usable in single variables, arrays and structured fields
+ok 377 - PBYTE is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.2188
+  type: 'test'
+  ...
+# Subtest: PWORD is usable in single variables, arrays and structured fields
+ok 378 - PWORD is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.4639
+  type: 'test'
+  ...
+# Subtest: PDWORD is usable in single variables, arrays and structured fields
+ok 379 - PDWORD is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.8478
+  type: 'test'
+  ...
+# Subtest: PUINT is usable in single variables, arrays and structured fields
+ok 380 - PUINT is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 3.9806
+  type: 'test'
+  ...
+# Subtest: PUINT32 is usable in single variables, arrays and structured fields
+ok 381 - PUINT32 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2622
+  type: 'test'
+  ...
+# Subtest: PUINT64 is usable in single variables, arrays and structured fields
+ok 382 - PUINT64 is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.1017
+  type: 'test'
+  ...
+# Subtest: PULONGLONG is usable in single variables, arrays and structured fields
+ok 383 - PULONGLONG is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5351
+  type: 'test'
+  ...
+# Subtest: PUINT_PTR is usable in single variables, arrays and structured fields
+ok 384 - PUINT_PTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4156
+  type: 'test'
+  ...
+# Subtest: PCSTR is usable in single variables, arrays and structured fields
+ok 385 - PCSTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.426
+  type: 'test'
+  ...
+# Subtest: PSTR is usable in single variables, arrays and structured fields
+ok 386 - PSTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.811
+  type: 'test'
+  ...
+# Subtest: PCSZ is usable in single variables, arrays and structured fields
+ok 387 - PCSZ is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2606
+  type: 'test'
+  ...
+# Subtest: PCWSTR is usable in single variables, arrays and structured fields
+ok 388 - PCWSTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 1.2287
+  type: 'test'
+  ...
+# Subtest: PWSTR is usable in single variables, arrays and structured fields
+ok 389 - PWSTR is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 2.8271
+  type: 'test'
+  ...
+# Subtest: PCUNICODE_STRING is usable in single variables, arrays and structured fields
+ok 390 - PCUNICODE_STRING is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.7508
+  type: 'test'
+  ...
+# Subtest: PCANSI_STRING is usable in single variables, arrays and structured fields
+ok 391 - PCANSI_STRING is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.4793
+  type: 'test'
+  ...
+# Subtest: PPVOID is usable in single variables, arrays and structured fields
+ok 392 - PPVOID is usable in single variables, arrays and structured fields
+  ---
+  duration_ms: 0.5275
+  type: 'test'
+  ...
+# Subtest: ANSI and WCHAR own bounded buffers and expose pointers to kernel APIs
+ok 393 - ANSI and WCHAR own bounded buffers and expose pointers to kernel APIs
+  ---
+  duration_ms: 1.5347
+  type: 'test'
+  ...
+# Subtest: UNICODE_STRING Length / MaximumLength are bytes and Buffer is owned
+ok 394 - UNICODE_STRING Length / MaximumLength are bytes and Buffer is owned
+  ---
+  duration_ms: 0.5274
+  type: 'test'
+  ...
+# Subtest: ANSI_STRING uses its descriptor and bounded single byte buffer
+ok 395 - ANSI_STRING uses its descriptor and bounded single byte buffer
+  ---
+  duration_ms: 0.3404
+  type: 'test'
+  ...
+# Subtest: string assignment copies data, preserves destination capacity and snapshots before/after
+ok 396 - string assignment copies data, preserves destination capacity and snapshots before/after
+  ---
+  duration_ms: 4.6512
+  type: 'test'
+  ...
+# Subtest: variable Get string snapshot remains unchanged after the original variable is rewritten
+ok 397 - variable Get string snapshot remains unchanged after the original variable is rewritten
+  ---
+  duration_ms: 1.5239
+  type: 'test'
+  ...
+# Subtest: oversized assignment stops at its node without partially changing the destination
+ok 398 - oversized assignment stops at its node without partially changing the destination
+  ---
+  duration_ms: 4.8207
+  type: 'test'
+  ...
+# Subtest: fixed structures have JSON initializers, named field pins and independent copy snapshots
+ok 399 - fixed structures have JSON initializers, named field pins and independent copy snapshots
+  ---
+  duration_ms: 0.7062
+  type: 'test'
+  ...
+# Subtest: OBJECT_ATTRIBUTES initializes its declared Length default
+ok 400 - OBJECT_ATTRIBUTES initializes its declared Length default
+  ---
+  duration_ms: 0.4509
+  type: 'test'
+  ...
+# Subtest: opaque KTIMER variables are accepted by initialization and timer APIs
+ok 401 - opaque KTIMER variables are accepted by initialization and timer APIs
+  ---
+  duration_ms: 0.8833
+  type: 'test'
+  ...
+# Subtest: opaque kernel objects cannot be copied or incremented by generic nodes
+ok 402 - opaque kernel objects cannot be copied or incremented by generic nodes
+  ---
+  duration_ms: 0.9328
+  type: 'test'
+  ...
+# Subtest: custom structure metadata validates offsets and exposes initialized fields
+ok 403 - custom structure metadata validates offsets and exposes initialized fields
+  ---
+  duration_ms: 0.9836
+  type: 'test'
+  ...
+# Subtest: arrays of strings use distinct buffers and preserve descriptor stride
+ok 404 - arrays of strings use distinct buffers and preserve descriptor stride
+  ---
+  duration_ms: 0.645
+  type: 'test'
+  ...
+# Subtest: structured variables may contain integer, string and native structure fields together
+ok 405 - structured variables may contain integer, string and native structure fields together
+  ---
+  duration_ms: 0.5131
+  type: 'test'
+  ...
+# Subtest: local strings and their snapshots are retired per function invocation
+ok 406 - local strings and their snapshots are retired per function invocation
+  ---
+  duration_ms: 4.715
+  type: 'test'
+  ...
+# Subtest: copying a function-local string into a global string retains content after return
+ok 407 - copying a function-local string into a global string retains content after return
+  ---
+  duration_ms: 1.8028
+  type: 'test'
+  ...
+# Subtest: ANSI rejects lossy Unicode initialization and descriptor capacity is bounded
+ok 408 - ANSI rejects lossy Unicode initialization and descriptor capacity is bounded
+  ---
+  duration_ms: 2.0917
+  type: 'test'
+  ...
+# Subtest: typed pointer aliases and signed integer aliases retain their ABI interpretation
+ok 409 - typed pointer aliases and signed integer aliases retain their ABI interpretation
+  ---
+  duration_ms: 0.85
+  type: 'test'
+  ...
+# Subtest: direct writes to a descriptor buffer appear in variable history
+ok 410 - direct writes to a descriptor buffer appear in variable history
+  ---
+  duration_ms: 0.6443
+  type: 'test'
+  ...
+# Subtest: retiring an aggregate clears object identity metadata for all cells
+ok 411 - retiring an aggregate clears object identity metadata for all cells
+  ---
+  duration_ms: 0.7174
+  type: 'test'
+  ...
+# Subtest: string array element pins can drive typed reads and writes without changing adjacent elements
+ok 412 - string array element pins can drive typed reads and writes without changing adjacent elements
+  ---
+  duration_ms: 3.2427
+  type: 'test'
+  ...
+# Subtest: full type example copies a local string, prints it and initializes the timer
+ok 413 - full type example copies a local string, prints it and initializes the timer
+  ---
+  duration_ms: 4.71
+  type: 'test'
+  ...
+# Subtest: shared global and invocation locals remain deterministic under four clock partitions
+ok 414 - shared global and invocation locals remain deterministic under four clock partitions
+  ---
+  duration_ms: 42.7863
+  type: 'test'
+  ...
+# Subtest: live variable Value output controls while condition and connected Delta controls increments
+ok 415 - live variable Value output controls while condition and connected Delta controls increments
+  ---
+  duration_ms: 3.3654
+  type: 'test'
+  ...
+# Subtest: increment/decrement expose before and after; explicit zero is a no-op write
+ok 416 - increment/decrement expose before and after; explicit zero is a no-op write
+  ---
+  duration_ms: 2.8907
+  type: 'test'
+  ...
+# Subtest: read is a snapshot; direct variable Value remains live after later writes
+ok 417 - read is a snapshot; direct variable Value remains live after later writes
+  ---
+  duration_ms: 4.6994
+  type: 'test'
+  ...
+# Subtest: variable scalar widths and signedness apply consistently to initialization and arithmetic
+ok 418 - variable scalar widths and signedness apply consistently to initialization and arithmetic
+  ---
+  duration_ms: 3.1006
+  type: 'test'
+  ...
+# Subtest: Memory Write and API output pointers update the same storage and debugger history
+ok 419 - Memory Write and API output pointers update the same storage and debugger history
+  ---
+  duration_ms: 3.4769
+  type: 'test'
+  ...
+# Subtest: all graphs referencing one global definition share the identical address
+ok 420 - all graphs referencing one global definition share the identical address
+  ---
+  duration_ms: 2.2784
+  type: 'test'
+  ...
+# Subtest: recursive locals initialize anew and retain per-invocation final values
+ok 421 - recursive locals initialize anew and retain per-invocation final values
+  ---
+  duration_ms: 3.3206
+  type: 'test'
+  ...
+# Subtest: local addresses are reclaimed on return and stale Ref capabilities are rejected
+ok 422 - local addresses are reclaimed on return and stale Ref capabilities are rejected
+  ---
+  duration_ms: 2.4738
+  type: 'test'
+  ...
+# Subtest: a callee writes its caller local by Address without creating a second local instance
+ok 423 - a callee writes its caller local by Address without creating a second local instance
+  ---
+  duration_ms: 1.3452
+  type: 'test'
+  ...
+# Subtest: DPC has fresh root locals and resumes caller local scope with original read snapshots
+ok 424 - DPC has fresh root locals and resumes caller local scope with original read snapshots
+  ---
+  duration_ms: 1.4122
+  type: 'test'
+  ...
+# Subtest: timed scenario modifies shared globals without resetting suspended helper locals
+ok 425 - timed scenario modifies shared globals without resetting suspended helper locals
+  ---
+  duration_ms: 1.9639
+  type: 'test'
+  ...
+# Subtest: variable refs are capabilities, never interchangeable with numbers or pointers
+ok 426 - variable refs are capabilities, never interchangeable with numbers or pointers
+  ---
+  duration_ms: 0.7582
+  type: 'test'
+  ...
+# Subtest: cross-graph local reference and duplicate/malformed declarations fail validation
+ok 427 - cross-graph local reference and duplicate/malformed declarations fail validation
+  ---
+  duration_ms: 2.3013
+  type: 'test'
+  ...
+# Subtest: rename preserves stable IDs and type changes prune only incompatible ref wires
+ok 428 - rename preserves stable IDs and type changes prune only incompatible ref wires
+  ---
+  duration_ms: 0.3474
+  type: 'test'
+  ...
+# Subtest: delete variable removes every reference, while deleting function removes only its locals
+ok 429 - delete variable removes every reference, while deleting function removes only its locals
+  ---
+  duration_ms: 0.3698
+  type: 'test'
+  ...
+# Subtest: definition creation assigns unique IDs, caps size, and round trips shared state
+ok 430 - definition creation assigns unique IDs, caps size, and round trips shared state
+  ---
+  duration_ms: 785.1366
+  type: 'test'
+  ...
+# Subtest: pause does not change values; step emits one mutation with current node and time
+ok 431 - pause does not change values; step emits one mutation with current node and time
+  ---
+  duration_ms: 0.4268
+  type: 'test'
+  ...
+# Subtest: 3000 repeated mutations preserve one storage cell, integer wrapping and bounded history
+ok 432 - 3000 repeated mutations preserve one storage cell, integer wrapping and bounded history
+  ---
+  duration_ms: 30.7584
+  type: 'test'
+  ...
+1..432
+# tests 432
+# suites 0
+# pass 432
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1453.2647

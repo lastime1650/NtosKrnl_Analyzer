@@ -1,0 +1,823 @@
+{
+  "schema": 1,
+  "image": "4a6af9a3dbbeb440c4a9fbe8a4d6832eae751ac3a85860d860b8313a737a2e3a",
+  "engine": "WDM contract model v2.5",
+  "testedAt": "2026-10-18T14:32:16.707Z",
+  "total": 117,
+  "passed": 117,
+  "failed": 0,
+  "rows": [
+    {
+      "name": "문자열 / 구조체 / 객체 변수 · 7ms",
+      "expected": "COMPLETED · 복사 / 출력 / 객체 초기화",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "문자열 / 구조체 / 객체 변수 · 33ms",
+      "expected": "COMPLETED · 복사 / 출력 / 객체 초기화",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "문자열 / 구조체 / 객체 변수 · 660ms",
+      "expected": "COMPLETED · 복사 / 출력 / 객체 초기화",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "문자열 변수 용량 초과",
+      "expected": "진단 중단 · 원래 문자열 보존",
+      "actual": "진단 중단 · 문자열 쓰기가 용량을 초과했습니다: 12 bytes / 8 bytes",
+      "pass": true,
+      "virtualMs": 1200
+    },
+    {
+      "name": "pool · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "pool · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "pool · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "timer · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 6240
+    },
+    {
+      "name": "timer · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 6240
+    },
+    {
+      "name": "timer · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 6240
+    },
+    {
+      "name": "strings · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 1440
+    },
+    {
+      "name": "strings · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 1440
+    },
+    {
+      "name": "strings · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 1440
+    },
+    {
+      "name": "mmio · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 1920
+    },
+    {
+      "name": "mmio · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 1920
+    },
+    {
+      "name": "mmio · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 1920
+    },
+    {
+      "name": "vm · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "vm · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "vm · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "notify · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3360
+    },
+    {
+      "name": "notify · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3360
+    },
+    {
+      "name": "notify · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3360
+    },
+    {
+      "name": "registry · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "registry · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "registry · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3600
+    },
+    {
+      "name": "blank · clock chunk 7ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "blank · clock chunk 33ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "blank · clock chunk 660ms",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "crash · clock chunk 7ms",
+      "expected": "BAD_POOL_CALLER",
+      "actual": "BAD_POOL_CALLER",
+      "pass": true,
+      "virtualMs": 3360
+    },
+    {
+      "name": "crash · clock chunk 33ms",
+      "expected": "BAD_POOL_CALLER",
+      "actual": "BAD_POOL_CALLER",
+      "pass": true,
+      "virtualMs": 3360
+    },
+    {
+      "name": "crash · clock chunk 660ms",
+      "expected": "BAD_POOL_CALLER",
+      "actual": "BAD_POOL_CALLER",
+      "pass": true,
+      "virtualMs": 3360
+    },
+    {
+      "name": "attach 없이 유저 VA 쓰기",
+      "expected": "PAGE_FAULT_IN_NONPAGED_AREA",
+      "actual": "PAGE_FAULT_IN_NONPAGED_AREA",
+      "pass": true,
+      "virtualMs": 1440
+    },
+    {
+      "name": "detach 없이 DriverEntry 반환",
+      "expected": "APC_INDEX_MISMATCH",
+      "actual": "APC_INDEX_MISMATCH",
+      "pass": true,
+      "virtualMs": 2640
+    },
+    {
+      "name": "읽기 전용 유저 페이지 쓰기",
+      "expected": "PAGE_FAULT_IN_NONPAGED_AREA",
+      "actual": "PAGE_FAULT_IN_NONPAGED_AREA",
+      "pass": true,
+      "virtualMs": 2400
+    },
+    {
+      "name": "유저 커밋 한도 초과",
+      "expected": "STATUS_COMMITMENT_LIMIT",
+      "actual": "STATUS_COMMITMENT_LIMIT",
+      "pass": true,
+      "virtualMs": 1440
+    },
+    {
+      "name": "등록 전 0ms 생성 이벤트",
+      "expected": "콜백 0회",
+      "actual": "콜백 0회",
+      "pass": true,
+      "virtualMs": 1920
+    },
+    {
+      "name": "핸들러 서명 불일치",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    },
+    {
+      "name": "FORCE_INTEGRITY 없는 ProcessNotifyEx 등록",
+      "expected": "STATUS_ACCESS_DENIED · 콜백 0회",
+      "actual": "STATUS_ACCESS_DENIED · 콜백 0회",
+      "pass": true,
+      "virtualMs": 1920
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED / UNINIT=false / RAISE=false",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED / UNINIT=false / RAISE=true",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED / UNINIT=true / RAISE=false",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED / UNINIT=true / RAISE=true",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED_EXECUTE / UNINIT=false / RAISE=false",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED_EXECUTE / UNINIT=false / RAISE=true",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED_EXECUTE / UNINIT=true / RAISE=false",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_NON_PAGED_EXECUTE / UNINIT=true / RAISE=true",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_PAGED / UNINIT=false / RAISE=false",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_PAGED / UNINIT=false / RAISE=true",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_PAGED / UNINIT=true / RAISE=false",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "풀 플래그 · POOL_FLAG_PAGED / UNINIT=true / RAISE=true",
+      "expected": "COMPLETED · 풀 0개",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "enum POOL_TYPE → legacy 할당 API",
+      "expected": "COMPLETED · PagedPool 할당",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2640
+    },
+    {
+      "name": "전역 define 공유와 이름 변경",
+      "expected": "COMPLETED · BUFFER_BYTES=128",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "전역 define 순환 참조",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    },
+    {
+      "name": "사용자 enum 값 → 풀 Flags",
+      "expected": "COMPLETED · NonPagedPool 할당",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "동적 else if 8개 · 마지막 조건 실행",
+      "expected": "else if 8",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 720
+    },
+    {
+      "name": "else if 0개 · else 기본 경로",
+      "expected": "else",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 720
+    },
+    {
+      "name": "동적 조건 순서 변경 · 연결 유지",
+      "expected": "elseIf_3 우선 실행",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 720
+    },
+    {
+      "name": "중간 else if 삭제 · 나머지 핀 유지",
+      "expected": "elseIf_3 실행",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 720
+    },
+    {
+      "name": "분기 단락 평가 · 미실행 결과 무시",
+      "expected": "if 실행",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 720
+    },
+    {
+      "name": "반복문 for · 7ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 4320
+    },
+    {
+      "name": "반복문 for · 33ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 4320
+    },
+    {
+      "name": "반복문 for · 660ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 4320
+    },
+    {
+      "name": "반복문 while · 7ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3120
+    },
+    {
+      "name": "반복문 while · 33ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3120
+    },
+    {
+      "name": "반복문 while · 660ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3120
+    },
+    {
+      "name": "반복문 loop-control · 7ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 6000
+    },
+    {
+      "name": "반복문 loop-control · 33ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 6000
+    },
+    {
+      "name": "반복문 loop-control · 660ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 6000
+    },
+    {
+      "name": "반복문 nested-loops · 7ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 12960
+    },
+    {
+      "name": "반복문 nested-loops · 33ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 12960
+    },
+    {
+      "name": "반복문 nested-loops · 660ms",
+      "expected": "COMPLETED · 반복/메모리 일치",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 12960
+    },
+    {
+      "name": "for 음수 증감값",
+      "expected": "COMPLETED · 5,3,1",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "반복 시작 조건 FALSE",
+      "expected": "COMPLETED · 0회",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 720
+    },
+    {
+      "name": "for 무한 반복 안전 한도",
+      "expected": "진단 중단 · 3회 한도",
+      "actual": "진단 중단 · demo_loop 반복 안전 한도 3회 초과. 조건과 증감값을 확인하세요.",
+      "pass": true,
+      "virtualMs": 2640
+    },
+    {
+      "name": "while 무한 반복 안전 한도",
+      "expected": "진단 중단 · 3회 한도",
+      "actual": "진단 중단 · demo_loop 반복 안전 한도 3회 초과. 조건과 증감값을 확인하세요.",
+      "pass": true,
+      "virtualMs": 1920
+    },
+    {
+      "name": "반복문 밖의 break",
+      "expected": "진단 중단 · 반복 문맥 없음",
+      "actual": "진단 중단 · break는 현재 실행 중인 반복문 본문에서만 사용할 수 있습니다.",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "반복문 밖의 continue",
+      "expected": "진단 중단 · 반복 문맥 없음",
+      "actual": "진단 중단 · continue는 현재 실행 중인 반복문 본문에서만 사용할 수 있습니다.",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "활성 반복문 없이 Repeat 진입",
+      "expected": "진단 중단 · Repeat 문맥 오류",
+      "actual": "진단 중단 · Repeat는 현재 가장 안쪽 반복문으로 복귀해야 합니다: demo_loop",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "조건 데이터 순환 연결",
+      "expected": "진단 중단 · 데이터 연결 순환",
+      "actual": "진단 중단 · 데이터 연결 순환",
+      "pass": true,
+      "virtualMs": 480
+    },
+    {
+      "name": "중첩 반복문을 건너뛴 Repeat",
+      "expected": "진단 중단 · 안쪽 반복문 우선",
+      "actual": "진단 중단 · Repeat는 현재 가장 안쪽 반복문으로 복귀해야 합니다: demo_loop",
+      "pass": true,
+      "virtualMs": 1440
+    },
+    {
+      "name": "사용자 함수 functions · 7ms",
+      "expected": "COMPLETED · 반환값 17",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "사용자 함수 functions · 33ms",
+      "expected": "COMPLETED · 반환값 17",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "사용자 함수 functions · 660ms",
+      "expected": "COMPLETED · 반환값 17",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "사용자 함수 function-nested · 7ms",
+      "expected": "COMPLETED · 반환값 17",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "사용자 함수 function-nested · 33ms",
+      "expected": "COMPLETED · 반환값 17",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "사용자 함수 function-nested · 660ms",
+      "expected": "COMPLETED · 반환값 17",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "사용자 함수 function-loop · 7ms",
+      "expected": "COMPLETED · 반환값 3",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 8400
+    },
+    {
+      "name": "사용자 함수 function-loop · 33ms",
+      "expected": "COMPLETED · 반환값 3",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 8400
+    },
+    {
+      "name": "사용자 함수 function-loop · 660ms",
+      "expected": "COMPLETED · 반환값 3",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 8400
+    },
+    {
+      "name": "사용자 함수 function-recursion · 7ms",
+      "expected": "COMPLETED · 반환값 120",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 5520
+    },
+    {
+      "name": "사용자 함수 function-recursion · 33ms",
+      "expected": "COMPLETED · 반환값 120",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 5520
+    },
+    {
+      "name": "사용자 함수 function-recursion · 660ms",
+      "expected": "COMPLETED · 반환값 120",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 5520
+    },
+    {
+      "name": "함수 호출 간 지역 변수 분리",
+      "expected": "SumUntil(5)=10, SumUntil(3)=3",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 8400
+    },
+    {
+      "name": "함수 그래프 직접 연결 차단",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    },
+    {
+      "name": "존재하지 않는 사용자 함수 호출",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    },
+    {
+      "name": "재귀 호출 깊이 안전 한도",
+      "expected": "진단 중단 · 64단계",
+      "actual": "진단 중단 · 사용자 함수 호출 깊이 64 초과. 재귀 종료 조건을 확인하세요.",
+      "pass": true,
+      "virtualMs": 46560
+    },
+    {
+      "name": "변수 variables · 7ms",
+      "expected": "Total=8 · LocalCount=3,6",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3840
+    },
+    {
+      "name": "변수 variables · 33ms",
+      "expected": "Total=8 · LocalCount=3,6",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3840
+    },
+    {
+      "name": "변수 variables · 660ms",
+      "expected": "Total=8 · LocalCount=3,6",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3840
+    },
+    {
+      "name": "변수 variable-loop · 7ms",
+      "expected": "Counter=5 · 반복 5회",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3120
+    },
+    {
+      "name": "변수 variable-loop · 33ms",
+      "expected": "Counter=5 · 반복 5회",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3120
+    },
+    {
+      "name": "변수 variable-loop · 660ms",
+      "expected": "Counter=5 · 반복 5회",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 3120
+    },
+    {
+      "name": "변수 Delta 데이터 핀 연결",
+      "expected": "Counter=6 · 반복 3회",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2160
+    },
+    {
+      "name": "지역변수 범위 밖 참조",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    },
+    {
+      "name": "변수 Ref 자료형 불일치",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    },
+    {
+      "name": "변수 Ref 없는 쓰기",
+      "expected": "진단 중단 · Ref 연결 필요",
+      "actual": "진단 중단 · 유효한 LARGE_INTEGER 변수 Ref 핀을 연결하세요. 반환된 지역변수는 사용할 수 없습니다.",
+      "pass": true,
+      "virtualMs": 960
+    },
+    {
+      "name": "배열/구조체 aggregates · 7ms",
+      "expected": "Buffer=[10,25,37,40] · 지역 Count=25,37",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "배열/구조체 aggregates · 33ms",
+      "expected": "Buffer=[10,25,37,40] · 지역 Count=25,37",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "배열/구조체 aggregates · 660ms",
+      "expected": "Buffer=[10,25,37,40] · 지역 Count=25,37",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 2880
+    },
+    {
+      "name": "배열/구조체 aggregate-loop · 7ms",
+      "expected": "지역 Buffer=[0,3,6,9] · 전역 Count=18",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 4560
+    },
+    {
+      "name": "배열/구조체 aggregate-loop · 33ms",
+      "expected": "지역 Buffer=[0,3,6,9] · 전역 Count=18",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 4560
+    },
+    {
+      "name": "배열/구조체 aggregate-loop · 660ms",
+      "expected": "지역 Buffer=[0,3,6,9] · 전역 Count=18",
+      "actual": "COMPLETED",
+      "pass": true,
+      "virtualMs": 4560
+    },
+    {
+      "name": "배열 인덱스 경계 4",
+      "expected": "진단 중단 · agg_element",
+      "actual": "진단 중단 · 배열 인덱스 범위 초과: 4 (허용 0..3)",
+      "pass": true,
+      "virtualMs": 960
+    },
+    {
+      "name": "배열 인덱스 경계 -1",
+      "expected": "진단 중단 · agg_element",
+      "actual": "진단 중단 · 배열 인덱스 범위 초과: 4294967295 (허용 0..3)",
+      "pass": true,
+      "virtualMs": 960
+    },
+    {
+      "name": "구조체 동적 필드 오류 3",
+      "expected": "진단 중단 · agg_field",
+      "actual": "진단 중단 · 구조체 필드 범위 초과: 3 (허용 0..2)",
+      "pass": true,
+      "virtualMs": 1200
+    },
+    {
+      "name": "구조체 동적 필드 오류 0",
+      "expected": "진단 중단 · agg_field",
+      "actual": "진단 중단 · 선택한 필드의 자료형 UCHAR과 출력 자료형 ULONG32이 다릅니다.",
+      "pass": true,
+      "virtualMs": 1200
+    },
+    {
+      "name": "배열 선언 길이 0 차단",
+      "expected": "실행 전 연결 거부",
+      "actual": "실행 전 거부",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Locally generated, version-specific analysis results and symbol downloads
+/analyses/
+/work/
+/releases/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+/simulator/test-results/*
+!/simulator/test-results/variable-types-node-tests.txt
+!/simulator/test-results/variable-types-browser-regression.json
+!/simulator/test-results/variable-types-report.json
+/simulator/screenshots/*
+!/simulator/screenshots/variable-types.png

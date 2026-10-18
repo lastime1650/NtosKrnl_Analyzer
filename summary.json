@@ -1,0 +1,23 @@
+{
+  "image": "C:\\Windows\\System32\\ntoskrnl.exe",
+  "image_sha256": "4a6af9a3dbbeb440c4a9fbe8a4d6832eae751ac3a85860d860b8313a737a2e3a",
+  "pdb": {
+    "name": "ntkrnlmp.pdb",
+    "guid": "b661c6fe-7299-1d16-0fe3-7c48b8bc5470",
+    "age": 1,
+    "symbol_key": "B661C6FE72991D160FE37C48B8BC54701"
+  },
+  "function_reports_generated": 37994,
+  "inventory_functions": 37994,
+  "total_instructions_decoded": 2666137,
+  "total_cfg_blocks": 558608,
+  "functions_with_skipdata_bytes": 54,
+  "skipdata_bytes": 567,
+  "functions_without_pdb_names": 7173,
+  "additional_code_symbol_candidates_not_promoted_to_functions": 6108,
+  "decode_failures": [],
+  "leaf_and_stripped_function_limit": "The unwind table gives explicit ranges for functions with unwind metadata. x64 leaf routines may omit unwind entries; candidates are included separately. A stripped unnamed leaf routine with no metadata cannot be distinguished with certainty from code bytes alone.",
+  "beta_c_style_reports": 37994,
+  "beta_c_style_section": 5,
+  "report_filename_convention": "<identified-symbol-or-Unknown>_function_<RVA>.md"
+}

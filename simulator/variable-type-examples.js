@@ -1,0 +1,16 @@
+export function makeVariableTypeExample(){
+ const p={schema:1,variables:[
+  {id:'var_driver',name:'DriverName',type:'ANSI',initial:'NodeDriver',capacity:32,scope:'global',graph:'main'},
+  {id:'var_source',name:'SourceName',type:'UNICODE_STRING',initial:'커널 문자열',capacity:64,scope:'global',graph:'main'},
+  {id:'var_target',name:'CopiedName',type:'UNICODE_STRING',initial:'',capacity:64,scope:'global',graph:'main'},
+  {id:'var_status',name:'IoStatus',type:'IO_STATUS_BLOCK',initial:'{"Status":"STATUS_SUCCESS","Information":"42"}',scope:'global',graph:'main'},
+  {id:'var_timer',name:'Timer',type:'KTIMER',initial:'0',scope:'global',graph:'main'},
+  {id:'var_local',name:'LocalName',type:'UNICODE_STRING',initial:'',capacity:64,scope:'local',graph:'fn_copy'}
+ ],functions:[{id:'fn_copy',name:'CopyName',args:[{id:'arg_text',name:'Text',type:'PUNICODE_STRING',default:'0'}],returnType:'NTSTATUS'}],nodes:[],edges:[]};
+ const add=(id,kind,extra={},graph='main',x=440,y=200)=>{const n={id,kind,params:{},x,y,...extra,...(graph==='main'?{}:{graph})};p.nodes.push(n);return n;},wire=(from,out,to,input,kind='data')=>p.edges.push({id:'typed_e'+p.edges.length,from,out,to,in:input,kind}),flow=(a,b)=>wire(a,'then',b,'exec','exec');
+ add('typed_entry','entry',{},'main',440,20);add('typed_driver','variable',{variableId:'var_driver'},'main',30,230);add('typed_source','variable',{variableId:'var_source'},'main',30,480);add('typed_target','variable',{variableId:'var_target'},'main',30,730);add('typed_status','variable',{variableId:'var_status'},'main',850,30);add('typed_timer','variable',{variableId:'var_timer'},'main',850,430);
+ add('typed_call','userCall',{functionId:'fn_copy'},'main',440,230);add('typed_print','api',{api:'DbgPrint',formatStyle:'named',formatText:'Driver={Driver} Text={Text} Information={Bytes}',formatArgs:[{name:'Driver',type:'ANSI'},{name:'Text',type:'UNICODE_STRING'},{name:'Bytes',type:'ULONG64'}],params:{Format:'0'}},'main',440,500);add('typed_init','api',{api:'KeInitializeTimer'},'main',440,930);add('typed_return','return',{params:{Status:'0'}},'main',440,1170);
+ flow('typed_entry','typed_call');flow('typed_call','typed_print');flow('typed_print','typed_init');flow('typed_init','typed_return');wire('typed_source','Value','typed_call','arg_text');wire('typed_driver','Value','typed_print','Driver');wire('typed_target','Value','typed_print','Text');wire('typed_status','Information','typed_print','Bytes');wire('typed_timer','Address','typed_init','Timer');
+ add('typed_function_entry','functionEntry',{},'fn_copy',440,20);add('typed_local','variable',{variableId:'var_local'},'fn_copy',30,250);add('typed_global','variable',{variableId:'var_target'},'fn_copy',30,600);add('typed_set_local','variableSet',{valueType:'UNICODE_STRING'},'fn_copy',440,270);add('typed_set_global','variableSet',{valueType:'UNICODE_STRING'},'fn_copy',440,610);add('typed_function_return','functionReturn',{params:{Value:'STATUS_SUCCESS'}},'fn_copy',440,950);
+ flow('typed_function_entry','typed_set_local');flow('typed_set_local','typed_set_global');flow('typed_set_global','typed_function_return');wire('typed_function_entry','arg_text','typed_set_local','Value');wire('typed_local','Ref','typed_set_local','Variable');wire('typed_local','Value','typed_set_global','Value');wire('typed_global','Ref','typed_set_global','Variable');return p;
+}

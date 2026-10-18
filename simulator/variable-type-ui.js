@@ -1,0 +1,13 @@
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export const initialText=value=>value&&typeof value==='object'?JSON.stringify(value):String(value??'');
+export function typeOptions(types,value,numericOnly=false){
+ const groups=[['문자열 / 문자열 구조체',t=>!!t.string],['숫자 / 상수',t=>t.scalar&&!t.pointerTo],['형식이 있는 포인터',t=>!!t.pointerTo],['고정 구조체',t=>!t.scalar&&!t.string&&!t.opaque&&!t.custom],['커널 객체 (opaque)',t=>!!t.opaque],['사용자 정의 구조체',t=>!!t.custom]];
+ return groups.map(([title,test])=>{const rows=Object.entries(types).filter(([,t])=>test(t)&&(!numericOnly||t.scalar));return rows.length?`<optgroup label="${title}">${rows.map(([name])=>`<option value="${esc(name)}" ${name===value?'selected':''}>${esc(name)}</option>`).join('')}</optgroup>`:''}).join('');
+}
+export function variableInitialEditor(v,types){const t=types[v.type],text=initialText(v.initial??(t?.string?'':'0'));return `<label class="field">${v.container==='array'?'공통 요소 초기값':t?.string?'문자열 초기값':!t?.scalar&&!t?.opaque?'필드 초기값 JSON':'초기값'}${t?.string||!t?.scalar&&!t?.opaque?`<textarea id="variableInitial" rows="3" maxlength="32766">${esc(text)}</textarea>`:`<input id="variableInitial" value="${esc(text)}" ${t?.opaque?'readonly':''}>`}</label>`;}
+export function variableValueEditor(v,types){const t=types[v.type];if(t?.string)return `<label class="field">버퍼 용량 (${['wide','unicode'].includes(t.string)?'UTF-16 단위':'바이트'} · 종료 문자 포함)<input id="variableCapacity" type="number" min="1" max="${['wide','unicode'].includes(t.string)?32767:65535}" value="${v.capacity??Math.max(256,initialText(v.initial).length+1)}"></label><button id="applyVariableCapacity">버퍼 용량 적용</button><p>UNICODE_STRING / ANSI_STRING은 16바이트 descriptor와 소유 버퍼를 만듭니다. Length / MaximumLength는 바이트 단위입니다. Value / Address를 API에 연결하세요. 변수 쓰기는 내용을 복사하고 용량 초과를 차단합니다.</p>`;
+ if(t?.custom)return `<label class="field">사용자 구조체 크기<input id="variableCustomSize" type="number" min="1" max="1048576" value="${v.customSize??64}"></label><label class="field">필드 배치 JSON<textarea id="variableCustomFields" rows="4">${esc(typeof v.customFields==='string'?v.customFields:JSON.stringify(v.customFields??{Field0:{offset:0,width:4,value:'0'}}))}</textarea></label><button id="applyVariableCustom">크기 / 필드 배치 적용</button>`;
+ if(t?.opaque)return '<div class="note">커널 객체 저장소입니다. Value / Address를 KeInitializeTimer 등 호환되는 초기화 API에 연결하세요. 초기화된 동기화 객체의 값 복사와 증감은 허용하지 않습니다. 비공개 필드 배치는 추정하지 않습니다.</div>';
+ if(t&&!t.scalar)return `<p>필드 초기값 예: ${esc(JSON.stringify(Object.fromEntries(Object.keys(t.fields||{}).map(k=>[k,t.defaults?.[k]??'0']))))}. Value / Address는 구조체 포인터이며 필드별 출력 핀도 사용할 수 있습니다.</p>`;
+ return '';
+}

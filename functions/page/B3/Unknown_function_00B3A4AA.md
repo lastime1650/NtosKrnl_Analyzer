@@ -1,0 +1,79 @@
+# sub_00B3A4AA
+
+- RVA: `0x00B3A4AA`–`0x00B3A4C7` (길이 `29` bytes)
+- VA: `0x0000000140B3A4AA`
+- 실행 섹션: `PAGE`
+- PDB 이름 있음: `아니요`; PDB Function 태그: `아니요`
+- unwind 정보 RVA: `0x000AE578`
+- 디코드: `7`개 명령, `29/29` bytes 표시
+- 미해석 바이트: `0` (있으면 어셈블리에 `.byte`로 보존)
+
+> 이 문서는 커널 이미지의 기계어와 PDB 기호를 분석해 생성했습니다. 4번과 5번은 함수 원형과 자료형을 바이너리 사용 방식에서 추정한 C 해석이며 원본 소스 복구 결과는 아닙니다.
+
+## 1. Dependencies
+
+- 직접 호출 지점: **1**; 고유 호출 대상: **1**
+- 직접 호출자로 확인된 함수: **0**
+- RIP 상대 이미지 참조: **1**
+
+### Outgoing calls
+- `0x00B3A4BC` → [BiLogMessage](../A3/BiLogMessage_function_00A3D3A8.md) (function, `0x00A3D3A8`)
+
+### Direct callers
+- 이 함수 시작 RVA로 연결되는 직접 call은 확인되지 않았습니다. 간접 호출은 완전히 역산할 수 없습니다.
+
+### Static image references
+- `0x00B3A4AA` → RVA `0x00B0C920` (` ?? ::NNGAKEGL::`string'`; read)
+
+## 2. Other-region calls and transfers
+
+- 다른 실행 섹션으로 향하는 call: **0**
+- call이 아닌 외부 분기/꼬리 이동: **1**
+  - `0x00B3A4C2` → [BiDeleteEfiVariable + 0xB3](../A3/BiDeleteEfiVariable_function_00A3D2A8.md) (`tail-transfer`)
+
+## 3. Assembly (complete function range)
+
+```asm
+00B3A4AA  48 8D 15 6F 24 FD FF            lea rdx, [rip - 0x2db91]
+00B3A4B1  44 8B C8                        mov r9d, eax
+00B3A4B4  4C 8B C7                        mov r8, rdi
+00B3A4B7  B9 04 00 00 00                  mov ecx, 4
+00B3A4BC  E8 E7 2E F0 FF                  call 0x140a3d3a8
+00B3A4C1  90                              nop
+00B3A4C2  E9 94 2E F0 FF                  jmp 0x140a3d35b
+```
+
+## 4. C-style interpretation (structured pseudocode)
+
+```c
+__int64 __fastcall sub_00B3A4AA(void)
+{
+    __int64 result;
+
+    result = BiLogMessage(4, v_rip - 187281, v_rdi, (unsigned int)((unsigned int)(result)));
+}
+```
+
+## 5. (Beta) C Style
+
+```c
+void sub_00B3A4AA(void)
+{
+    int64_t result;
+
+    result = BiLogMessage(4, v_rip - 187281, local_rdi, (uint32_t)((uint32_t)(result)));
+}
+```
+
+## 6. Execution-region graph
+
+[열기: 2D/3D 그래프와 함수 탐색 컨트롤 패널](../../../control-panel.html?section=page&rva=0x00B3A4AA&view=graph)
+
+- 2D 그래프는 위에서 아래로 흐르고, 3D 그래프는 빈 공간을 드래그해 회전합니다. Shift+드래그는 이동, 휠은 확대·축소, 함수 노드 선택은 대상 보고서 이동입니다.
+
+### Static fallback
+
+```mermaid
+flowchart TD
+  bb_00B3A4AA[BB_00B3A4AA]
+```

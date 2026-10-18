@@ -1,0 +1,31 @@
+export const LOOP_KINDS=['for','while'];
+export const PURE_KINDS=['calculate','compare'];
+export const LOOP_OPS=['<','<=','>','>=','==','!='];
+export const CALC_OPS=['+','-','*','/','%','&','|','^','<<','>>'];
+export const FLOW_KINDS=['for','while','break','continue'];
+export function loopPorts(n){
+ if(n.kind==='for'||n.kind==='while')return {inputs:[...(n.kind==='for'?[['Start','LARGE_INTEGER','0'],['Limit','LARGE_INTEGER','10'],['Step','LARGE_INTEGER','1']]:[['Left','LARGE_INTEGER','0'],['Right','LARGE_INTEGER','10']]),['Condition','BOOLEAN','TRUE'],['MaxIterations','ULONG32','1000']].map(([name,type,def])=>({name,label:({Start:'시작값 · Start',Limit:'상한 · Limit',Step:'증감 · Step',Left:'조건 왼쪽 · Left',Right:'조건 오른쪽 · Right',Condition:'조건 BOOL · Condition',MaxIterations:'안전 한도'})[name],type,default:def})),outputs:[...(n.kind==='for'?[{name:'Index',type:'LARGE_INTEGER'}]:[]),{name:'Iteration',type:'ULONG64'},{name:'Checks',type:'ULONG64'},{name:'Condition',type:'BOOLEAN'}],exec:['body','after'],execInputs:['exec','repeat']};
+ if(n.kind==='break'||n.kind==='continue')return {inputs:[],outputs:[],exec:[]};
+ if(PURE_KINDS.includes(n.kind))return {inputs:['Left','Right'].map(name=>({name,type:'LARGE_INTEGER',default:name==='Right'?'1':'0'})),outputs:[{name:'Value',type:n.kind==='compare'?'BOOLEAN':'LARGE_INTEGER'}],exec:[]};
+ return null;
+}
+export function loopErrors(n){if(LOOP_KINDS.includes(n.kind)){if(!LOOP_OPS.includes(n.op||'<'))return ['반복 비교 연산자 오류'];if(n.conditionMode&&!['compare','boolean'].includes(n.conditionMode))return ['반복 조건 모드 오류'];}if(n.kind==='calculate'&&!CALC_OPS.includes(n.op||'+'))return ['계산 연산자 오류'];if(n.kind==='compare'&&!LOOP_OPS.includes(n.op||'<'))return ['비교 연산자 오류'];return [];}
+export function pureValue(e,n,seen){const a=e.input(n,'Left',seen),b=e.input(n,'Right',seen);if(n.kind==='compare')return BigInt(e.compare(a,b,n.op||'<'));let result;switch(n.op||'+'){case '+':result=a+b;break;case '-':result=a-b;break;case '*':result=a*b;break;case '/':if(!b)throw new Error('계산 노드의 0 나누기');result=a/b;break;case '%':if(!b)throw new Error('계산 노드의 0 나머지');result=a%b;break;case '&':result=a&b;break;case '|':result=a|b;break;case '^':result=a^b;break;case '<<':case '>>':if(b<0n||b>63n)throw new Error('시프트 값은 0–63입니다.');result=n.op==='<<'?a<<b:a>>b;break;default:throw new Error('지원하지 않는 계산 연산자');}return BigInt.asIntN(64,result);}
+export const LOOP_PHASES={initializing:'초기화',checking:'조건 검사',body:'본문 실행',repeat:'반복 복귀',increment:'증감',continue:'continue → 복귀',break:'break → 완료',completed:'조건 거짓 → 완료',returned:'루틴 반환',stopped:'중지',error:'진단 중단'};
+export class LoopRuntime{
+ constructor(e,Gap){this.e=e;this.Gap=Gap;this.records=[];this.serial=0;this.transfer=null;}
+ active(id){return [...this.e.loopFrames].reverse().find(f=>f.node===id);}
+ describe(id){return this.active(id)||[...this.records].reverse().find(f=>f.node===id);}
+ publish(f){this.e.outputs.set(f.node,{...(f.kind==='for'?{Index:f.index}:{}),Iteration:BigInt(f.iteration),Checks:BigInt(f.checks),Condition:BigInt(f.condition)});}
+ value(n,port){const f=this.describe(n.id);if(!f)throw new this.Gap(n.id+' 반복문이 아직 시작되지 않았습니다.');if(f.active&&!this.active(n.id))throw new this.Gap('다른 실행 문맥의 활성 반복 변수에는 접근할 수 없습니다: '+n.id);const result=({Index:f.index,Iteration:BigInt(f.iteration),Checks:BigInt(f.checks),Condition:BigInt(f.condition)})[port];if(result===undefined)throw new this.Gap('반복 출력 핀이 없습니다: '+port);return result;}
+ unwind(reason='returned'){for(const f of this.e.loopFrames){f.active=false;f.phase=reason;this.publish(f);}this.e.loopFrames=[];}
+ transition(from,f,mode){this.transfer={from,to:f.node,mode,time:this.e.time};this.e.breakSkip=null;}
+ control(n){const f=this.e.loopFrames.at(-1);if(!f)throw new this.Gap(n.kind+'는 현재 실행 중인 반복문 본문에서만 사용할 수 있습니다.');this.transition(n.id,f,n.kind);this.e.log('loop-'+n.kind,n.kind+' → '+f.node+' · 반복 '+f.iteration,n.id);if(n.kind==='break'){f.phase='break';f.active=false;this.e.loopFrames.pop();this.publish(f);this.e.current=f.node;this.e.advance('after');}else{f.phase='continue';this.e.current=f.node;this.e.flowInput='repeat';}}
+ run(n){if(n.kind==='break'||n.kind==='continue'){this.control(n);return true;}if(!LOOP_KINDS.includes(n.kind))return false;const e=this.e,port=e.flowInput||'exec';let f=this.active(n.id);
+  if(port==='exec'){if(f)throw new this.Gap('이미 실행 중인 반복문입니다. 본문 끝은 '+n.id+'의 Repeat 핀으로 연결하세요.');f={id:++this.serial,node:n.id,kind:n.kind,index:n.kind==='for'?e.input(n,'Start'):0n,iteration:0,checks:0,condition:false,phase:'initializing',active:true,context:e.stack[0]?.name||'DriverEntry',startedAt:e.time};e.loopFrames.push(f);this.records.push(f);this.publish(f);e.log('loop-enter',n.kind+' '+n.id+(n.kind==='for'?' · Index='+f.index:''));}
+  else{if(!f||e.loopFrames.at(-1)!==f)throw new this.Gap('Repeat는 현재 가장 안쪽 반복문으로 복귀해야 합니다: '+n.id);if(port==='repeat'&&n.kind==='for'){f.phase='increment';const step=e.input(n,'Step');f.index=BigInt.asIntN(64,f.index+step);this.publish(f);e.log('loop-increment',n.id+' · Index='+f.index+' · Step='+step);e.flowInput='condition';return true;}if(!['repeat','condition'].includes(port))throw new this.Gap('잘못된 반복 진입 핀: '+port);}
+  f.phase='checking';this.publish(f);const explicit=n.conditionMode==='boolean'||e.program.edges.some(x=>x.kind==='data'&&x.to===n.id&&x.in==='Condition');let condition;if(explicit)condition=!!e.input(n,'Condition');else condition=n.kind==='for'?e.compare(f.index,e.input(n,'Limit'),n.op||'<'):e.compare(e.input(n,'Left'),e.input(n,'Right'),n.op||'<');f.checks++;f.condition=condition;e.log('loop-check',n.id+' · 검사 '+f.checks+' → '+condition+(n.kind==='for'?' · Index='+f.index:''));
+  if(!condition){f.active=false;f.phase='completed';e.loopFrames.pop();this.publish(f);e.log('loop-exit',n.id+' · 총 '+f.iteration+'회');e.advance('after');return true;}
+  const max=Number(e.input(n,'MaxIterations'));if(!Number.isInteger(max)||max<1||max>1000000)throw new this.Gap('반복 안전 한도는 1–1,000,000회입니다.');if(f.iteration>=max)throw new this.Gap(n.id+' 반복 안전 한도 '+max+'회 초과. 조건과 증감값을 확인하세요.');f.iteration++;f.phase='body';this.publish(f);e.log('loop-body',n.id+' · 반복 '+f.iteration+(n.kind==='for'?' · Index='+f.index:''));e.advance('body');return true;
+ }
+}

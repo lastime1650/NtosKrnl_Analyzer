@@ -1,0 +1,11 @@
+export const MAX_ELSE_IFS=64;
+export const BRANCH_OPS=['!=','==','>','>=','<','<=','NT_SUCCESS','&'];
+// Stable port names keep existing wires intact when a condition is removed or moved.
+export function elseIfs(n){return n.elseIfs===undefined?[{id:'elseIf',op:n.elseOp||'!='}]:Array.isArray(n.elseIfs)?n.elseIfs:[];}
+export function branchCases(n){return [{id:'if',op:n.op||'!=',left:'Left',right:'Right'},...elseIfs(n).filter(c=>c&&typeof c.id==='string').map(c=>({id:c.id,op:c.op||'!=',left:c.id==='elseIf'?'ElseLeft':c.id+'Left',right:c.id==='elseIf'?'ElseRight':c.id+'Right'}))];}
+export function branchLabel(n,id){if(id==='if'||id==='else')return id;const i=elseIfs(n).findIndex(c=>c.id===id);return i>=0?'else if '+(i+1):id;}
+export function branchInputs(n){return branchCases(n).flatMap(c=>[c.left,c.right].map(name=>({name,type:'ANY',default:'0'})));}
+export function branchErrors(n){const cs=elseIfs(n),ids=new Set;const errors=[];if(n.elseIfs!==undefined&&!Array.isArray(n.elseIfs)||cs.length>MAX_ELSE_IFS)errors.push('else if는 최대 '+MAX_ELSE_IFS+'개입니다.');if(!BRANCH_OPS.includes(n.op||'!='))errors.push('if 비교 연산자 오류');for(const c of cs){if(!c||typeof c.id!=='string'||!/^elseIf(?:_[0-9]+)?$/.test(c.id)||ids.has(c.id)||!BRANCH_OPS.includes(c.op||'!='))errors.push('else if 식별자·연산자 오류');else ids.add(c.id);}return errors;}
+export function addElseIf(n){const cs=elseIfs(n).map(c=>({...c}));if(cs.length>=MAX_ELSE_IFS)throw new Error('else if는 최대 '+MAX_ELSE_IFS+'개입니다.');let i=1;while(cs.some(c=>c.id==='elseIf_'+i))i++;const id='elseIf_'+i;cs.push({id,op:'!='});n.elseIfs=cs;n.params??={};n.params[id+'Left']='0';n.params[id+'Right']='0';return id;}
+export function removeElseIf(program,n,id){const c=branchCases(n).find(c=>c.id===id);if(!c||id==='if')return;n.elseIfs=elseIfs(n).filter(c=>c.id!==id).map(c=>({...c}));for(const k of [c.left,c.right])if(n.params)delete n.params[k];program.edges=program.edges.filter(e=>!(e.from===n.id&&e.kind==='exec'&&e.out===id)&&!(e.to===n.id&&e.kind==='data'&&[c.left,c.right].includes(e.in)));}
+export function moveElseIf(n,id,direction){const cs=elseIfs(n).map(c=>({...c})),i=cs.findIndex(c=>c.id===id),j=i+direction;if(i<0||j<0||j>=cs.length)return;[cs[i],cs[j]]=[cs[j],cs[i]];n.elseIfs=cs;}
