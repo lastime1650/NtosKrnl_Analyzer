@@ -114,6 +114,33 @@ python -m http.server 8000
 
 `DriverEntry`에서 시작해 노드 라이브러리의 블록을 캔버스로 가져오고 핀을 연결합니다. **시뮬레이션 시작** 후 중단점을 설정하거나 Step Into를 눌러 실행과 값을 추적합니다.
 
+## HAL (`hal.dll`) 분석
+
+저장소의 [`hal/`](hal/)에는 현재 분석 PC의 `C:\Windows\System32\hal.dll`에 대응하는 별도 분석 결과가 있습니다. 해당 파일 버전은 **10.0.26100.1**이며, PE의 RSDS GUID/Age와 일치하는 Microsoft `hal.pdb`를 내려받아 MSF 7.0 형식 및 DbgHelp 로딩을 확인했습니다.
+
+| 분석 항목 | 결과 |
+| --- | --- |
+| PDB 식별자 | `ff0f78af-4301-9c3e-04c0-84da6e04995f`, Age `1` |
+| Export 전달 항목 | 91개 모두 `ntoskrnl.<이름>`으로 전달 |
+| 현재 시스템 `ntoskrnl.exe`와 대상 Export 매칭 | 91 / 91 |
+| 기존 ntoskrnl 함수 보고서 연결 | 89 / 91 |
+| HAL 실행 함수 본문 | 0개 — 실행 섹션, Import, unwind 함수 범위가 없음 |
+| HAL PDB 함수 심볼 | 0개 — PDB에서 데이터 심볼 1개 확인 |
+
+이 빌드의 `hal.dll`은 함수 본문을 담은 실행 모듈이 아니라 **PE Export 전달 계층**입니다. 따라서 각 HAL Export의 RVA는 실행 코드 위치가 아닌 Export 디렉터리의 forwarder 문자열 위치입니다. HAL 코드처럼 보이는 의사 C를 만들어 넣지 않고, 확인된 `ntoskrnl.exe` 구현 보고서로 연결했습니다. `KdComPortInUse`와 `KdHvComPortInUse`는 대상 Export RVA까지 확인했지만 직접 연결할 함수 보고서는 없습니다.
+
+### HAL 분석 사용법
+
+1. [`hal/README.md`](hal/README.md)에서 분석 범위와 파일 구성을 확인합니다.
+2. 저장소 루트에서 `python -m http.server 8000`을 실행합니다.
+3. 브라우저에서 `http://127.0.0.1:8000/hal/control-panel.html`을 엽니다.
+4. Export 이름을 검색하고, 항목을 선택해 `hal.dll`에서 `ntoskrnl.exe`로 이어지는 세로 그래프와 커널 RVA를 봅니다. 연결된 항목은 기존 ntoskrnl 함수 Markdown 보고서로 이동할 수 있습니다.
+
+[HAL 인터랙티브 분석 패널](hal/control-panel.html) · [HAL 전체 요약](hal/HAL-ANALYSIS.md) · [Export JSON 인벤토리](hal/data/hal-analysis.json) · [일치 PDB](hal/symbols/hal.pdb)
+
+> [!NOTE]
+> 위 결과는 저장소에 포함된 분석 입력 버전에 해당합니다. 다른 Windows 빌드의 `hal.dll`은 별도 PDB와 함께 다시 분석해야 하며, PDB 심볼은 원본 Microsoft C 소스 코드를 제공하지 않습니다.
+
 ## 다른 Windows 버전 분석하기
 
 새 OS 빌드의 분석 결과를 별도 프로젝트로 만들려면 저장소에서 `start_dynamic_analysis.cmd`를 실행합니다. 컨트롤 패널에서 **동적 ntoskrnl.exe 분석요청**을 선택하고 대상 `ntoskrnl.exe` 경로와 새 결과 폴더명을 지정한 뒤 분석을 시작합니다.
@@ -145,6 +172,7 @@ python -m http.server 8000
 | [`control-panel.html`](control-panel.html) | 검색, 보고서, 2D/3D 그래프를 제공하는 정적 컨트롤 패널 |
 | [`simulator/`](simulator/) | 노드 편집기, 디버거, API 계약 모델과 브라우저 예제 |
 | [`tools/`](tools/) | PE/PDB 분석, 버전별 분석 실행과 로컬 서버 |
+| [`hal/`](hal/) | 현재 hal.dll의 일치 PDB, Export 전달 분석, 검색 패널과 ntoskrnl 연결 |
 
 <details>
 <summary>개발자용 자동 테스트 실행 방법</summary>

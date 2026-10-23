@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "image": "C:\\Windows\\System32\\hal.dll",
+  "architecture": "x64",
+  "image_base": 7516192768,
+  "image_base_hex": "0x00000001C0000000",
+  "pdb": {
+    "name": "hal.pdb",
+    "guid": "ff0f78af-4301-9c3e-04c0-84da6e04995f",
+    "age": 1,
+    "symbol_key": "FF0F78AF43019C3E04C084DA6E04995F1",
+    "path": "symbols/hal.pdb",
+    "microsoft_symbol_server_url": "https://msdl.microsoft.com/download/symbols/hal.pdb/FF0F78AF43019C3E04C084DA6E04995F1/hal.pdb",
+    "size_bytes": 77824,
+    "sha256": "f1e88ad5db169bfad785d935c880a6ce297b9faef8bbb3e830d878e7367b497a",
+    "msf_7_validated": true,
+    "dbghelp_symbol_count": 1
+  },
+  "executable_sections": [],
+  "counts": {
+    "runtime_function_table_records_in_executable_sections": 0,
+    "runtime_function_records_without_pdb_symbol_name": 0,
+    "pdb_symtag_function_records": 0,
+    "additional_code_symbol_candidates_without_unwind_start": 0
+  },
+  "exception_directory": {
+    "rva": 0,
+    "size_bytes": 0,
+    "raw_record_count": 0
+  },
+  "function_boundary_basis": "No executable section or runtime function entry exists in this HAL image.",
+  "completeness_note": "This image is an export-forwarder DLL with no executable code sections.",
+  "function_count": 0,
+  "functions": [],
+  "additional_code_symbol_candidates": []
+}
